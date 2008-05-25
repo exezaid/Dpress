@@ -1,50 +1,71 @@
+# Custom patches
+from blog.sitemaps import BlogSitemap
+from django.conf import settings
 from django.conf.urls.defaults import *
+from django.contrib import admin
+from django.contrib.sitemaps import FlatPageSitemap
+from django.http import HttpResponseServerError
+from django.template.context import RequestContext, Context
+from django.template.loader import render_to_string
+from os.path import join, dirname
+import discussion.mail
+import utils.patches
 
-#feed
-from diario.feeds import RssEntriesFeed, AtomEntriesFeed
+def error500(request, template_name='500.html'):
+    try:
+        output = render_to_string(template_name, {}, RequestContext(request))
+    except:
+        output = "Critical error. Administrator was notified." 
+    #render_to_string(template_name, {}, Context())
+    return HttpResponseServerError(output)
 
-entries_feeds = {
-    'rss': RssEntriesFeed,
-    'atom': AtomEntriesFeed,
-}
-
-
-#feed by tag
-from diario.feeds import RssEntriesByTagFeed, AtomEntriesByTagFeed
-
-entries_by_tag_feeds = {
-    'rss': RssEntriesByTagFeed,
-    'atom': AtomEntriesByTagFeed,
-}
-
-#feed with comment
-from diario.feeds import RssFreeCommentsFeed as RssWeblogCommentsFeed
-from diario.feeds import AtomFreeCommentsFeed as AtomWeblogCommentsFeed
-blog_comments_feeds = {
-    'rss': RssWeblogCommentsFeed,
-    'atom': AtomWeblogCommentsFeed,
-}
-
-#sitemap
-from diario.sitemaps import DiarioSitemap
+handler500 = 'urls.error500'
 
 sitemaps = {
-    'weblog': DiarioSitemap,
-}
+    'blog': BlogSitemap,
+    'flat': FlatPageSitemap,
+    }
 
-urlpatterns = patterns('',
-     # homepage
-     (r'^$', 'django.views.generic.simple.direct_to_template', {'template': 'flatfiles/homepage.html'}),
-     (r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
+try:
+    import urls_local
+    urlpatterns = urls_local.urlpatterns
+except ImportError:
+    urlpatterns = patterns('',)
 
-     # weblog
-     (r'^blog/(?P<url>(rss|atom))/$', 'django.contrib.syndication.views.feed', {'feed_dict': entries_feeds}),
-     (r'^blog/tag/', include('diario.urls.tagged')),
-     (r'^blog/tag/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': entries_by_tag_feeds}),
-     (r'^blog/tag/(?P<tag>[^/]+)/(?P<slug>(rss|atom))/$', 'diario.views.syndication.feed', {'feed_dict': entries_by_tag_feeds}),
-     (r'^blog/comments/(?P<url>(rss|atom))/$', 'django.contrib.syndication.views.feed', {'feed_dict': blog_comments_feeds}),
-     (r'^blog/', include('diario.urls.entries')),
+urlpatterns += patterns(
+    '',
+    url(r'^admin/', include('django.contrib.admin.urls')),
+    url(r'^accounts/', include('accounts.urls')),
+    url(r'^openid/', include('openidconsumer.urls')),
+    url(r'^openidserver/', include('openidserver.urls')),
+    url(r'^%s' % settings.BLOG_URLCONF_ROOT, include('blog.urls')),
+    url(r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
+    url(r'^pingback/', include('pingback.urls')),
+    url(r'^$', 'blog.views.process_root_request'),
+    url(r'^captcha/', include('captcha.urls')),
+    url(r'^robots.txt$', include('robots.urls')),
+    url(r'^feeds/', include('feed.urls')),
+    url(r'^xmlrpc/', include('xmlrpc.urls')),
+    )
 
-     # Uncomment this for admin:
-     (r'^admin/', include('django.contrib.admin.urls')),
-)
+# static urls will be disabled in production mode,
+# forcing user to configure httpd
+if settings.DEBUG:
+    urlpatterns += patterns(
+        '',
+        url(r'^media/(.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+        url(r'^static/(.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+        url(r'^admin-media/(.*)$', 'django.views.static.serve', {'document_root': join(dirname(admin.__file__), 'media')}),
+        )
+
+if 'wpimport' in settings.INSTALLED_APPS:
+    urlpatterns += patterns(
+        '',
+        url(r'^wpimport/', include('wpimport.urls')),
+        )
+
+if 'debug' in settings.INSTALLED_APPS:
+    urlpatterns += patterns(
+        '',
+        url('', include('debug.urls')),
+        )

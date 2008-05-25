@@ -8,8 +8,10 @@
 #
 
 import os
+import sys
 
 PROJECT_ROOT = os.path.split(__file__)[0]
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'utils'))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -53,7 +55,6 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = '/media/'
-STATIC_URL = '/static/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -92,13 +93,13 @@ MIDDLEWARE_CLASSES = (
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
-#    'lib.threadlocals.ThreadLocalsMiddleware',
+    'utils.threadlocals.ThreadLocalsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'middleware.url.UrlMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'middleware.redirect.RedirectMiddleware',
-#    'openidconsumer.middleware.OpenIDMiddleware',
+    'openidconsumer.middleware.OpenIDMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'middleware.ajax_errors.AjaxMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
@@ -110,14 +111,14 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
     "django.core.context_processors.request",
-#    "context_processors.settings_vars",
+    "utils.context_processors.settings_vars",
 ]
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-#    'accounts.backends.CommentApprovingBackend',
-#    'accounts.backends.EmailBackend',
-#    'openidconsumer.backend.OpenidBackend',
+    'accounts.backends.CommentApprovingBackend',
+    'accounts.backends.EmailBackend',
+    'openidconsumer.backend.OpenidBackend',
 )
 
 
@@ -136,12 +137,28 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'django.contrib.sites', 
     'django.contrib.sitemaps',
-    'tagging',              
-    'diario',
-    'tube',
-    'fleshin',
+    'django.contrib.flatpages',
+    'django.contrib.markup',
+    'accounts',
+    'blog',
+    'discussion',
+    'openidconsumer',
+    'pingback',
+    'tagging',
+    'typogrify',
+    'render',
+    'robots',
+    'textblocks',
+    'livejournal',
+    'blogroll',
+    'openidserver',
+    'recaptcha',
+    'debug',
+#    'sape',
+    'xmlrpc',
+    'pytils',
+    'utils',
 
 )
 
@@ -155,3 +172,97 @@ RECAPTCHA_PRIVATE_KEY =''
 DIARIO_DEFAULT_MARKUP_LANG = 'rest'
 DIARIO_DEFAULT_MARKUP_LANG = 10
  
+
+APPEND_SLASH = False
+REMOVE_WWW = True
+SITE_PROTOCOL = 'http'
+THEME = 'default'
+
+# App settings
+PAGINATE_BY = 10
+NAME_LENGTH = 256
+DATE_FORMAT = "j.m.Y"
+TIME_FORMAT = "G:i"
+ACTION_RECORD_DAYS = 3
+# Set to integer value to close comments after this number of days
+COMMENTS_EXPIRE_DAYS = None
+
+# Tagging
+FORCE_LOWERCASE_TAGS = True
+
+# OpenID
+OPENID_WITH_AUTH = True
+OPENID_REDIRECT_NEXT = '/'
+
+# Pingback
+ENABLE_PINGBACK = True
+PINGBACK_SERVER = {
+    'post_detail': 'pingback.getters.post_get',
+    }
+PINGBACK_RESPONSE_LENGTH = 200
+
+# Blogs directory ping
+ENABLE_DIRECTORY_PING = False
+# TODO: move this list to DB
+DIRECTORY_URLS = (
+    'http://ping.blogs.yandex.ru/RPC2',
+    'http://rpc.technorati.com/rpc/ping',
+    )
+
+# Default markup language for you posts. Choices are bbcode, text, html, markdown
+RENDER_METHOD = 'markdown'
+
+# Gravatar options
+GRAVATAR_ENABLE = False
+DEFAULT_AVATAR_IMG = 'avatar.jpg'
+DEFAULT_AVATAR_SIZE = 80
+DEFAULT_AVATAR_PATH = MEDIA_URL + 'avatars/'
+
+#if "false" robots application would not use auto-generated sitemap.xml
+ROBOTS_USE_SITEMAP = True
+
+# Root urlconf component for all blog urls
+URL_PREFIX = '' # default URL_PREFIX
+BLOG_URLCONF_ROOT = 'blog/' # Don't forget that there must be no leading '/'
+
+# Some defaults
+APPEND_MTIME_TO_STATIC = True # Modification time will be appended in media_css and media_js templatetags
+WYSIWYG_ENABLE = False # WYSIWYG for post text in admin
+ANONYMOUS_COMMENTS_APPROVED = False # Do anonymous comments become autoapproved?
+CAPTCHA_ENABLED = ANONYMOUS_COMMENTS_APPROVED # Enable captcha?
+DEBUG_SQL = False # Show debug information about sql queries at the bottom of page
+ENABLE_IMPORT = False # Enable importers
+ENABLE_LJ_CROSSPOST = False # Disable by defauls
+SHORT_POSTS_IN_FEED = False # Show full post in feed
+ENABLE_SAPE = False # Disable 'sape.ru' client
+
+STATIC_PAGES = (
+    # Name, url, title. When bool(name) is False, separator will be inserted
+    ('Blog', '/%s' % BLOG_URLCONF_ROOT, ''),
+    )
+
+# See all choices in apps/blog/templatetags/bookmarks.py
+SOCIAL_BOOKMARKS = ('delicious', 'reddit', 'slashdot', 'digg', 'technorati', 'google')
+
+try:
+    from settings_local import *
+except ImportError:
+    import sys
+    sys.stderr.write('Unable to read settings_local.py\n')
+    sys.exit(1)
+
+if ENABLE_IMPORT:
+    INSTALLED_APPS += ('wpimport', )
+
+#if ENABLE_SAPE:
+    #INSTALLED_APPS += ('sape', )
+
+if hasattr(globals(), 'ADDITIONAL_APPS'):
+    INSTALLED_APPS = INSTALLED_APPS + getattr(globals(), 'ADDITIONAL_APPS')
+
+LOCALE_PATHS = [os.path.join(PROJECT_ROOT, 'locale')]
+THEME_MEDIA_URL = os.path.join(MEDIA_URL, THEME + '/')
+
+if DEBUG:
+    MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + ('middleware.profile.ProfilerMiddleware', )
+

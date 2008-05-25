@@ -4,8 +4,8 @@ AJAX Middleware
 Catches common errors in AJAX views.
 """
 
-from lib.http import JsonResponse
-from lib.exceptions import *
+from utils.http import JsonResponse
+from utils.exceptions import *
 
 class AjaxMiddleware:
 

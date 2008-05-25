@@ -6,8 +6,8 @@ from blog.models import Post
 
 def settings_vars(request):
     return {
-        'STATIC_URL': settings.STATIC_URL,
-        'THEME_STATIC_URL': settings.THEME_STATIC_URL,
+        'MEDIA_URL': settings.MEDIA_URL,
+        'THEME_MEDIA_URL': settings.THEME_MEDIA_URL,
         'settings': settings,
         }
 

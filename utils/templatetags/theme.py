@@ -13,12 +13,12 @@ def theme_static(kind, filename):
                   [kind, '%s.%s' % (filename, kind)]]
 
     for candidate in candidates:
-        full_path = join(settings.STATIC_ROOT, *candidate)
+        full_path = join(settings.MEDIA_ROOT, *candidate)
         if exists(full_path) and not isdir(full_path):
             url = '/'.join(candidate)
             if settings.APPEND_MTIME_TO_STATIC:
                 url = '%s?%s' % (url, gettime(full_path))
-            return {'STATIC_URL': settings.STATIC_URL, 'include': True, 'url': url}
+            return {'MEDIA_URL': settings.MEDIA_URL, 'include': True, 'url': url}
 
     return {'include': False}
 
