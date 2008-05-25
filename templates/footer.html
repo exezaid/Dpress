@@ -1,0 +1,10 @@
+<div id="footer">(c) 2007-2008 <a href="/about/">Alexander Solovyov</a> <a href="http://ingparo.it">Alberto Paro</a></div>
+
+{% if settings.GA_ACC %}
+<script type="text/javascript" src="https://ssl.google-analytics.com/ga.js"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("{{ settings.GA_ACC }}");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+{% endif %}

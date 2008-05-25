@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load tnptags%}
+{% block title %}{{ method_name }} - XML-RPC Method Help{% endblock %}
+
+{% block content %}
+<h1>{{ method_name }}</h1>
+<pre class="signature">
+{% for signature in signature_lines %}{{ signature }}
+{% endfor %}</pre>
+{{ docstring }}
+<form action='.' method='POST'>
+<table>
+{{form}}
+<tr><td><input type='submit' title='Execute'></td></tr>
+</table>
+</form>
+{% if result %}{{result|dumpdata}}{% endif %}
+<p><a href="..">Back to the list of supported methods</a></p>
+{% endblock %}
