@@ -2,6 +2,29 @@
 
 from django.db.models import OneToOneField
 from django.db.models.fields.related import SingleRelatedObjectDescriptor
+from django.db import models
+import datetime
+
+class AddedDateTimeField(models.DateTimeField):
+    def __init__(self, **kwargs):
+        kwargs['editable'] = False
+        kwargs['blank'] = True
+        kwargs['null'] = True
+        models.DateTimeField.__init__(self, **kwargs)
+
+    def get_internal_type(self):
+        return models.DateTimeField.__name__
+    def pre_save(self, model_instance, add):
+        if model_instance.id is None or (getattr(model_instance, self.attname) is None):
+            return datetime.datetime.now()
+        else:
+            return getattr(model_instance, self.attname)
+
+class ModifiedDateTimeField(models.DateTimeField):
+    def get_internal_type(self):
+        return models.DateTimeField.__name__
+    def pre_save(self, model_instance, add):
+        return datetime.datetime.now()
 
 class AutoSingleRelatedObjectDescriptor(SingleRelatedObjectDescriptor):
     def __get__(self, instance, instance_type=None):

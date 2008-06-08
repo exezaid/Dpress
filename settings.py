@@ -140,6 +140,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.flatpages',
     'django.contrib.markup',
+    'django_evolution',
     'accounts',
     'blog',
     'discussion',
@@ -159,6 +160,8 @@ INSTALLED_APPS = (
     'xmlrpc',
     'pytils',
     'utils',
+    'geotagging',
+    'photologue',
 
 )
 
@@ -266,3 +269,5 @@ THEME_MEDIA_URL = os.path.join(MEDIA_URL, THEME + '/')
 if DEBUG:
     MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + ('middleware.profile.ProfilerMiddleware', )
 
+#fleshin
+HAS_TAG_SUPPORT = True
