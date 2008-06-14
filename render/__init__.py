@@ -6,7 +6,7 @@ from utils.bbcode import bb2xhtml
 from render import textparser
 from render.morefixer import more_fix
 from typogrify.templatetags.typogrify import typogrify
-
+import rest
 
 class RenderException(Exception):
     """Can't render"""
@@ -29,6 +29,8 @@ class Renderer(object):
             renderer = getattr(self, 'get_%s_render' % self.render_method)()
             return unicode(typogrify(more_fix(renderer(self.content))))
         except AttributeError:
+            import traceback
+            traceback.print_exc()
             raise RenderException(u"Unknown render method: '%s'" % self.render_method)
 
     def get_markdown_render(self):
@@ -46,3 +48,10 @@ class Renderer(object):
 
     def get_html_br_render(self):
         return textparser.add_br
+
+    def get_html_render(self):
+        return lambda x: x
+
+    def get_rest_render(self):
+        from django.contrib.markup.templatetags.markup import restructuredtext
+        return restructuredtext

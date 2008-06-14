@@ -13,6 +13,7 @@
   {% theme_js "jquery" %}
   {% theme_js "login-shortcuts" %}
   <script type="text/javascript" src="{% url processed_js %}"></script>
+  {% theme_css "photo"%}
   {% block extrahead %}{% endblock %}
 </head>
 <body>
@@ -21,7 +22,7 @@
   {% include "head.html" %}
 
   <div id="bodyblock">
-    <div id="sidebar">{% block sidebar %}{% endblock %}</div>
+    <div id="sidebar">{% block sidebar %}{% include "sidebar.html" %}{% endblock %}</div>
     <div id="content">
       {% site_messages %}
       {% block content %}{% endblock %}

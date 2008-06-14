@@ -1,0 +1,40 @@
+{% spaceless %}
+{% load i18n %}
+{% load pytils_dt %}
+{% load pytils_numeral %}
+{% load bookmarks %}
+{% load tagging_tags %}
+{% load bfmarkup %}
+{% load blog %}
+{% endspaceless %}
+<div class="post">
+	<p class="meta">
+		<span class="date"><span class="d">{{ object.date|date:"d" }}</span> <span class="m">{{ object.date|date:"F" }}</span></span> &nbsp;&nbsp;&nbsp; 
+        <a href="{{ object.get_absolute_url }}#comments" class="comments"><span class="c">{{ object.approved_comments_count }}</span>
+        {{ object.approved_comments_count|choose_plural:_("comment, comments, comments") }}</a>
+	</p>
+    {{ post_detail|cond_display:"<h2>,<h1>" }}
+        <a href="{{ object.get_absolute_url }}">{{ object.name|typogrify|safe }}</a>
+    {{ post_detail|cond_display:"</h2>,</h1>" }}
+	<div class="entry">
+	    <div class="text">
+	    {% if not post_detail and object.shortable %}
+	    {{ object.html_short|safe }}&nbsp;<span class="read-more"><a href="{{ object.get_absolute_url }}">{% trans "continue&nbsp;reading" %}</a></span>
+	    {% else %}
+	      {{ object.html|safe }}
+	    {% endif %}
+	    </div>
+		<br/>
+		{% if object.tags %}
+		<p class="tags"><small><strong>Tags:</strong> {% tags_for_object object as tags %}{% render_tag_string tags %}</small></p>
+		{% endif %}
+		<a href="{{ object.get_absolute_url }}#pingbacks">{{ object.pingback_count }}
+        	{{ object.pingback_count|choose_plural:_("pingback, pingbacks, pingbacks") }}</a>
+
+	    {% if post_detail %}
+	    {% bookmarks object %}
+	    {% endif %}
+	</div>
+
+	<div class="bgbottom" style="clear: both;"></div>
+</div>

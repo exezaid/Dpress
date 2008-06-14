@@ -5,21 +5,24 @@ from django.views.generic import date_based
 from blog import views
 from blog.models import Post
 
+from utils.decorators import theme_template
+
 info = {
     'paginate_by': settings.PAGINATE_BY,
+    'template_name': theme_template('blog/post_list.html'),
     }
 
 info_dict_year = {
     'queryset': Post.objects.all(),
     'date_field': 'date',
-    'template_name': 'blog/post_archive_year.html',
+    'template_name': theme_template('blog/post_archive_year.html'),
 }
 
 info_dict = {
     'queryset': Post.objects.all(),
     'date_field': 'date',
     'month_format': '%m',
-    'template_name': 'blog/post_list.html',
+    'template_name': theme_template('blog/post_list.html'),
     'allow_empty': True,
 }
 

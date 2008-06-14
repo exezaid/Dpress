@@ -1,0 +1,384 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: url(../images/background.jpg);
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	color: #972F1C;
+}
+
+h1, h2, h3 {
+	text-transform: lowercase;
+	color: #505956;
+}
+
+h1 {
+	font-size: 42px;
+}
+
+hr {
+	display: none;
+}
+
+a {
+	color: #990000;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+/* Header */
+
+#header {
+	height: 160px;
+	background: url(../images/header_background.jpg);
+}
+
+#logo {
+	height: 40px;
+	padding-right: 10px;
+	background: url(../images/logo.jpg) no-repeat right top;
+	text-align: right;
+}
+
+#logo h1, #logo p, #logo a {
+	display: inline;
+	text-decoration: none;
+	text-transform: lowercase;
+	letter-spacing: -2px;
+	font-size: 30px;
+	font-weight: bold;
+	color: #612A0F;
+}
+
+#menu {
+	height: 96px;
+}
+
+#menu ul {
+	list-style: none;
+}
+
+#menu li {
+	float: left;
+	height: 96px;
+}
+
+#menu a {
+	float: left;
+	height: 66px;
+	padding: 30px 20px 0 20px;
+	text-transform: lowercase;
+	text-decoration: none;
+	letter-spacing: -2px;
+	font-size: 30px;
+	font-weight: bold;
+	color: #E6CFB4;
+}
+
+#menu a:hover {
+	color: #FFFFFF;
+}
+
+#menu li.current_page_item a {
+	background: url(../images/current_page_item_bg.jpg) repeat-x;
+	color: #647472;
+}
+
+/* Page */
+
+#page {
+	width: 980px;
+	margin: 0 auto;
+}
+
+#page p,
+#page ul,
+#page ol {
+	margin-bottom: 1.5em;
+	line-height: 150%;
+}
+
+#page ul,
+#page ol {
+	list-style-position: inside;
+}
+
+/* Content */
+
+#content {
+	float: left;
+	width: 680px;
+	background: url(../images/content_bg.jpg) no-repeat right top;
+}
+
+/* Post Block */
+
+.post {
+	background: url(../images/post_bg.jpg) repeat-y 147px 0;
+}
+
+.post .bgbottom {
+	height: 60px;
+	background: url(../images/post_bg_bottom.jpg) no-repeat 147px 0;
+}
+
+.post .meta {
+	float: left;
+	width: 149px;
+	height: 355px;
+	background: url(../images/post_meta.jpg) no-repeat;
+	text-align: center;
+	text-transform: lowercase;
+	font-size: 14px;
+	font-weight: bold;
+	color: #333333;
+}
+
+.post .meta a {
+	text-decoration: none;
+	color: #333333;
+}
+
+.post .meta .d, .post .meta .c {
+	display: block;
+	font-size: 36px;
+}
+
+.post .meta .date, .post .meta .comments {
+	display: block;
+	padding: 95px 0 10px 0;
+}
+
+.post .title {
+	margin-left: 149px;
+	padding: 40px 40px 20px 20px;
+	background: url(../images/post_title.jpg) no-repeat;
+}
+
+.post .title a {
+	padding-right: 50px;
+	background: url(../images/post_a.gif) no-repeat right top;
+	text-decoration: none;
+	letter-spacing: -3px;
+	font-size: 42px;
+	color: #505956;
+}
+
+.post .entry {
+	margin: 0 33px 0 149px;
+	padding: 20px 20px 0 20px;
+	background: url(../images/entry_bg.jpg) no-repeat;
+}
+
+.post .entry a:link {
+	padding: 0 5px;
+	background: #E29269 url(../images/entry_bg_a.gif);
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.post .entry a:hover {
+	background: #A54112;
+	color: #FFFFFF;
+}
+
+/* Content Bar - The widget-ready sidebar in the content area. */
+
+#contentbar {
+	clear: both;
+	padding-top: 20px;
+}
+
+#contentbar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#contentbar li {
+	display: block;
+	float: left;
+	width: 325px;
+	margin-left: 10px;
+	background: url(../images/contentbar_li_bg.jpg) repeat-y;
+}
+
+#contentbar li ul {
+	padding: 0 20px 40px 20px;
+	background: url(../images/contentbar_li_ul_bg.jpg) no-repeat left bottom;
+}
+
+#contentbar li li {
+	float: none;
+	width: auto;
+	margin: 0;
+	padding: 5px 0 5px 30px;
+	background: url(../images/contentbar_li_li_bg.gif) no-repeat left center;
+}
+
+#contentbar .widgettitle {
+	padding: 45px 20px 20px 20px;
+	background: url(../images/contentbar_widgettitle_bg.jpg) no-repeat;
+	letter-spacing: -2px;
+}
+
+/* Recent Posts */
+
+#recent-posts {
+}
+
+#recent-posts .widgettitle{
+	background-image: url(../images/recentposts_widgettitle_bg.jpg);
+}
+
+#contentbar #recent-posts ul {
+	background-image: url(../images/contentbar_recentposts_ul_bg.jpg);
+}
+
+/* Recent Comments */
+
+#recent-comments ul {
+	font-size: 10px;
+	color: #D3AE8E;
+}
+
+#recent-comments a {
+	display: block;
+	font-size: 16px;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: right;
+	width: 300px;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#sidebar li {
+	position: relative;
+	margin-bottom: 20px;
+	background: url(../images/sidebar_li_bg.jpg) repeat-y;
+}
+
+#sidebar li ul, #calendar_wrap {
+	padding: 20px 20px 30px 20px;
+	background: url(../images/sidebar_li_ul_bg.jpg) no-repeat left bottom;
+}
+
+#sidebar li li {
+	margin: 0;
+	background: none;
+}
+
+#sidebar .widgettitle {
+	padding: 15px;
+	background: url(../images/sidebar_widgettitle_bg.jpg) no-repeat;
+	letter-spacing: -2px;
+	color: #AF5B19;
+}
+
+#sidebar a:link {
+	padding: 0 5px;
+	background: #FFBF00 url(../images/sidebar_a_link_bg.gif);
+	text-decoration: none;
+}
+
+#sidebar a:hover {
+	background: #E29269 url(../images/entry_bg_a.gif);
+	color: #FFFFFF;
+}
+
+/* Search */
+
+#sidebar #search {
+	height: 100px;
+	background: url(../images/search.jpg) no-repeat;
+}
+
+#search form {
+	padding: 22px 0 0 20px;
+}
+
+#search br {
+	display: none;
+}
+
+#search input {
+	display: none;
+	font: bold 14px Georgia, "Times New Roman", Times, serif;
+	text-transform: lowercase;
+	background: none;
+	border: none;
+}
+
+#search #s {
+	display: block;
+	width: 170px;
+	letter-spacing: -2px;
+	word-spacing: .6em;
+	font-size: 20px;
+	color: #FFFFFF;
+}
+
+/* Calendar */
+
+#calendar table {
+	width: 90%;
+	text-align: center;
+}
+
+/* Tag Cloud */
+
+#tag_cloud {
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+#tag_cloud .widgettitle {
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+#tag_cloud a {
+	margin: 0 20px 0 0;
+}
+
+/* Footer */
+
+#footer {
+	clear: both;
+	width: 980px;
+	height: 76px;
+	margin: 0 auto;
+	padding: 30px 0;
+	background: url(../images/footer.jpg) no-repeat left center;
+}
+
+#footer p {
+	margin: 0;
+	padding: 10px 0 0 20px;
+	font-size: smaller;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+
+.cal_not_in_month{
+	color:gray;
+}

@@ -1,0 +1,35 @@
+<li id="calendar" class="widget widget_calendar">
+	<h2 class="widgettitle">Calendario</h2>
+	<div id="calendar_wrap">
+		<table id="wp-calendar" summary="Calendario">
+			<caption>{{ basedate|date:"F Y" }}</caption>
+			<thead>
+				<tr>
+					{% for day in headers %}
+					<th abbr="{{ day|date:"l"}}" scope="col" title="{{ day|date:"l"}}">{{ day|date:"D"|slice:":2" }}</hd>
+					{% endfor %}
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td abbr="{{prev_month}}" colspan="3" id="prev"><a href="{{baseurl}}/{{prev_month|date:"Y/m"}}/" title="View for {{prev_month|date:"F"}} {{prev_month|date:"Y"}}">&laquo; {{prev_month|date:"N"}}</a></td>
+					<td class="pad">&nbsp;</td>
+					<td abbr="{{next_month}}" colspan="3" id="next"><a href="{{baseurl}}/{{next_month|date:"Y/m"}}/" title="View for {{next_month|date:"F"}} {{next_month|date:"Y"}}">{{next_month|date:"N"}} &raquo;</a></td>
+				</tr>
+			</tfoot>
+			<tbody>
+				{% for week in calendar %}
+				<tr>
+				{% for day in week %}
+				<td{% if not day.in_month %} class="cal_not_in_month"{% endif %}>{% if day.event %}<a href="{{baseurl}}/{{ day.day|date:"Y/m/d" }}/">{{ day.day|date:"j" }}</a>{% else %}{{ day.day|date:"j" }}{% endif %}</td>
+				{% endfor %}
+				</tr>
+				{% endfor %}
+<!--					<td id="today">28</td>
+					<td class="pad" colspan="4">&nbsp;</td>
+-->
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</li>

@@ -10,7 +10,7 @@
 import os
 import sys
 
-PROJECT_ROOT = os.path.split(__file__)[0]
+PROJECT_ROOT = os.path.split(os.path.abspath(__file__))[0]
 sys.path.insert(0, os.path.join(PROJECT_ROOT, 'utils'))
 
 DEBUG = True
@@ -103,6 +103,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.doc.XViewMiddleware',
     'middleware.ajax_errors.AjaxMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'middleware.theme.ThemeMiddleware',
+    
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = [

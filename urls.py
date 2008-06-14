@@ -42,6 +42,7 @@ urlpatterns += patterns(
     url(r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     url(r'^pingback/', include('pingback.urls')),
     url(r'^$', 'blog.views.process_root_request'),
+    url(r'^photo/', include('photologue.urls')),
     url(r'^captcha/', include('captcha.urls')),
     url(r'^robots.txt$', include('robots.urls')),
     url(r'^feeds/', include('feed.urls')),

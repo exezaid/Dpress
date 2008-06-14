@@ -1,9 +1,12 @@
 <div id="footer">(c) 2007-2008 <a href="/about/">Alexander Solovyov</a> <a href="http://ingparo.it">Alberto Paro</a></div>
 
 {% if settings.GA_ACC %}
-<script type="text/javascript" src="https://ssl.google-analytics.com/ga.js"></script>
 <script type="text/javascript">
-var pageTracker = _gat._getTracker("{{ settings.GA_ACC }}");
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("{{settings.GA_ACC}}");
 pageTracker._initData();
 pageTracker._trackPageview();
 </script>

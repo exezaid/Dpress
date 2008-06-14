@@ -1,0 +1,60 @@
+{% load calendar %}
+{% load photologue %}
+{% load blog %}
+{% spaceless %}
+<ul>
+	
+	<!--
+	<li id="search" class="widget widget_search">
+		<form id="searchform" method="get" action="">
+			<div>
+				<input type="text" name="s" id="s" size="15" value="" />
+				<br />
+				<input type="submit" value="Search" />
+			</div>
+		</form>
+	</li>
+	-->
+		{% month_cal '/blog/' %}
+
+		{% get_latest_posts 5 as latest_post_list %}
+		<li id="recent-posts" class="widget widget_recent_entries">
+			<h2 class="widgettitle">Post Recenti</h2>
+			<ul>
+			    {% for post in latest_post_list %}
+				<li><a href="{{ post.get_absolute_url }}">{{ post.name }}</a></li>
+			    {% endfor %}
+			</ul>
+		</li>
+		{% get_latest_galleries 5 as latest_gallery_list %}
+		{% if latest_gallery_list %}
+		<li id="recent-galleries" class="widget widget_recent_entries">
+			<h2 class="widgettitle">Ultime gallerie</h2>
+			<ul>
+			    {% for gallery in latest_gallery_list %}
+				<li><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></li>
+			    {% endfor %}
+			</ul>
+		</li>
+		{% endif %}
+	
+	<!--
+	<li id="tag_cloud" class="widget widget_tag_cloud">
+		<h2 class="widgettitle">Tags Cloud</h2>
+		<a href="#" style="font-size: 12pt;">dolor</a> <a href="#" style="font-size: 11pt;">ipsum</a> <a href="#" style="font-size: 10pt;">lorem</a> <a href="#" style="font-size:  9pt;">mattis&nbsp;placerat</a> <a href="#" style="font-size:  8pt;">nulla</a> <a href="#" style="font-size:  8pt;">sit&nbsp;amet</a> <a href="#" style="font-size:  8pt;">suscipit&nbsp;in</a> </li>
+	<li id="categories-1" class="widget widget_categories">
+		<h2 class="widgettitle">Categorie</h2>
+		<ul>
+			<li><a href="#" title="View all posts filed under Uncategorized">Uncategorized</a> (3) </li>
+		</ul>
+	</li>
+	<li id="archives" class="widget widget_archives">
+		<h2 class="widgettitle">Archivio</h2>
+		<ul>
+			<li><a href="#" title='October 2007'>October 2007</a>&nbsp;(2)</li>
+			<li><a href="#" title='September 2007'>September 2007</a>&nbsp;(1)</li>
+		</ul>
+	</li>
+	-->
+</ul>
+{% endspaceless %}

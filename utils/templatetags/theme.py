@@ -9,7 +9,8 @@ def gettime(filename):
     return strftime('%Y%m%d%H%M', time)
 
 def theme_static(kind, filename):
-    candidates = [[settings.THEME, kind, '%s.%s' % (filename, kind)],
+    candidates = [['themes', settings.THEME, kind, '%s.%s' % (filename, kind)],
+                  [settings.THEME, kind, '%s.%s' % (filename, kind)],
                   [kind, '%s.%s' % (filename, kind)]]
 
     for candidate in candidates:

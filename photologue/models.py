@@ -244,8 +244,8 @@ class Photo(models.Model):
     location = models.ForeignKey(Location, null=True, blank=True)
 
     class Meta:
-        ordering = ['-pub_date']
-        get_latest_by = 'pub_date'
+        ordering = ['date_taken']
+        get_latest_by = 'date_taken'
         verbose_name = _("photo")
         verbose_name_plural = _("photos")
 
@@ -271,6 +271,15 @@ class Photo(models.Model):
                 (self.get_absolute_url(), func())
     admin_thumbnail.short_description = _('Thumbnail')
     admin_thumbnail.allow_tags = True
+
+    @property
+    def gallery(self):
+        """
+        Return a gallery associated
+        """
+        if self.gallery_set.all().count()>0:
+            return self.gallery_set.all()[0]
+        return None
 
     def __unicode__(self):
         return self.title

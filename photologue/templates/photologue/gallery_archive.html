@@ -1,4 +1,8 @@
 {% extends "base.html" %}
+{% load theme %}
+{% block extrahead %}
+{% theme_css "photo"%}
+{% endblock %}
 
 {% block title %}Latest Photo Galleries{% endblock %}
 

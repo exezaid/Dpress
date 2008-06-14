@@ -1,8 +1,22 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-
+from django.conf import settings
 from utils.http import JsonResponse
-
+import os
+def theme_template(templatename, theme=None):
+    """
+    Return a tuple of valid template path
+    """
+    if not theme:
+        theme = settings.THEME
+    name = 'themes/%s/%s' %(theme, templatename)
+    for dir in settings.TEMPLATE_DIRS:
+        test_path = os.path.join(dir, name)
+        if os.path.exists(test_path):
+            return test_path
+     
+    return templatename
+    
 def render_to(template):
     """
     Decorator for Django views that sends returned dict to render_to_response function
@@ -21,9 +35,9 @@ def render_to(template):
         def wrapper(request, *args, **kw):
             output = func(request, *args, **kw)
             if isinstance(output, (list, tuple)):
-                return render_to_response(output[1], output[0], RequestContext(request))
+                return render_to_response(theme_template(output[1]), output[0], RequestContext(request))
             elif isinstance(output, dict):
-                return render_to_response(template, output, RequestContext(request))
+                return render_to_response(theme_template(template), output, RequestContext(request))
             return output
         return wrapper
     return renderer
