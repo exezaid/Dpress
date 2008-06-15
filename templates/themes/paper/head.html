@@ -1,17 +1,14 @@
+{% load i18n %}
 <div id="header">
 	<div id="logo">
-		<h1><a href="/">Andrea Jordan Paro</a></h1>
+		<h1><a href="/">{{ settings.BLOG_NAME }}</a></h1>
 	</div>
 	<div id="menu">
 		<ul>
 			<li {% ifequal section "home" %}class="current_page_item"{%endifequal%}><a href="/">Home</a></li>
-			<li {% ifequal section "blog" %}class="current_page_item"{%endifequal%}><a href="/blog/">Blogs</a></li>
-			<li {% ifequal section "photo" %}class="current_page_item"{%endifequal%}><a href="/photo/gallery/page/1/" title='Le mie foto'>Photos</a></li>
-			<li {% ifequal section "video" %}class="current_page_item"{%endifequal%}><a href="/video/"  title='I miei video'>Videos</a></li>
-<!--
-			<li {% ifequal section "about" %}class="current_page_item"{%endifequal%}><a href="#">About</a></li>
-			<li {% ifequal section "contact" %}class="current_page_item"{%endifequal%}><a href="#">Contact</a></li>
--->
+			<li {% ifequal section "blog" %}class="current_page_item"{%endifequal%}><a href="/blog/">{% trans "Blog" %}</a></li>
+			<li {% ifequal section "photo" %}class="current_page_item"{%endifequal%}><a href="/photo/gallery/page/1/" title='{% trans "My Photos" %}'>{% trans "Photos" %}</a></li>
+			<li {% ifequal section "video" %}class="current_page_item"{%endifequal%}><a href="/video/"  title='{% trans "My videos" %}'>{% trans "Videos" %}</a></li>
 		</ul>
 	</div>
 </div>

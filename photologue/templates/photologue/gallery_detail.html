@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block extrahead %}
 {% load theme %}
 {% theme_css "jquery.lightbox" %}
@@ -10,7 +11,7 @@
 {% block content %}
 
 <h1>{{ object.title }}</h1>
-<h2>Originally published {{ object.pub_date|date:"l, F jS, Y" }}</h2>
+<h2>{% trans "Originally published" %} {{ object.pub_date|date:"l, F jS, Y" }}</h2>
 {% if object.description %}<p>{{ object.description }}</p>{% endif %}
 <div class="photo-gallery">
     {% for photo in object.public %}
@@ -19,6 +20,7 @@
     </div>
     {% endfor %}
 </div>
-<p><a href="{% url pl-gallery-list 1 %}">View all galleries</a></p>
+<br/>
+<p><a href="{% url pl-gallery-list 1 %}">{% trans "View all galleries." %}</a></p>
 
 {% endblock %}

@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load calendar %}
 {% load photologue %}
 {% load blog %}
@@ -19,7 +20,7 @@
 
 		{% get_latest_posts 5 as latest_post_list %}
 		<li id="recent-posts" class="widget widget_recent_entries">
-			<h2 class="widgettitle">Post Recenti</h2>
+			<h2 class="widgettitle">{% trans "Latest Posts" %}</h2>
 			<ul>
 			    {% for post in latest_post_list %}
 				<li><a href="{{ post.get_absolute_url }}">{{ post.name }}</a></li>
@@ -29,11 +30,25 @@
 		{% get_latest_galleries 5 as latest_gallery_list %}
 		{% if latest_gallery_list %}
 		<li id="recent-galleries" class="widget widget_recent_entries">
-			<h2 class="widgettitle">Ultime gallerie</h2>
+			<h2 class="widgettitle">{% trans "Latest Galleries" %}</h2>
 			<ul>
 			    {% for gallery in latest_gallery_list %}
 				<li><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></li>
 			    {% endfor %}
+			</ul>
+		</li>
+		{% endif %}
+
+		{% get_latest_photos 8 as latest_photos_list %}
+		{% if latest_photos_list %}
+		<li id="recent-photos" class="widget widget_recent_entries">
+			<h2 class="widgettitle">{% trans "Latest Photos" %}</h2>
+			<ul>
+				<li>
+			    {% for photo in latest_photos_list %}
+				<a href="{{ photo.gallery.get_absolute_url }}" title="{{ photo.title }}"><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>
+			    {% endfor %}
+				</li>
 			</ul>
 		</li>
 		{% endif %}

@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Latest Photos{% endblock %}
+{% block title %}{% trans "Latest Photos" %}{% endblock %}
 
 {% block content %}
 
-<h1>Latest Photos</h1>
+<h1>{% trans "Latest Photos" %}</h1>
 
 {% if latest %}
     {% for photo in latest %}
@@ -13,8 +14,8 @@
     </div>
     {% endfor %}
 {% else %}
-<p>No photos were found.</p>
+<p>{% trans "No photos were found." %}</p>
 {% endif %}
-<p><a href="{% url pl-photo-list 1 %}">View all photographs</a></p>
+<p><a href="{% url pl-photo-list 1 %}">{% trans "View all photographs" %}</a></p>
 
 {% endblock %}

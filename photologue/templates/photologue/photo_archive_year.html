@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Galleries for {{ year }}{% endblock %}
+{% block title %}{% trans "Photos for" %} {{ year }}{% endblock %}
 
 {% block content %}
 
-<h1>Photos for {{ year }}</h1>
+<h1>{% trans "Photos for" %} {{ year }}</h1>
 <ul>
 {% for date in date_list %}
 <li><a href="{{ date|date:"M"|lower }}/">{{ date|date:"F" }}</a></li>

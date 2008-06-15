@@ -1,14 +1,15 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load theme %}
 {% block extrahead %}
 {% theme_css "photo"%}
 {% endblock %}
 
-{% block title %}Latest Photo Galleries{% endblock %}
+{% block title %}{% trans "Latest Photo Galleries" %}{% endblock %}
 
 {% block content %}
 
-<h1>Latest Photo Galleries</h1>
+<h1>{% trans "Latest Photo Galleries" %}</h1>
 
 {% if latest %}
     {% for gallery in latest %}
@@ -22,9 +23,9 @@
     </div>
     {% endfor %}
 {% else %}
-    <p>No galleries were found.</p>
+    <p>{% trans "No galleries were found." %}</p>
 {% endif %}
 
-<p><a href="{% url pl-gallery-list 1 %}">View all galleries.</a></p>
+<p><a href="{% url pl-gallery-list 1 %}">{% trans "View all galleries." %}</a></p>
 
 {% endblock %}

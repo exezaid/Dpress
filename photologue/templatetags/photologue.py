@@ -40,3 +40,38 @@ def do_get_latest_galleries(parser, token):
     raise template.TemplateSyntaxError, "%s tag had invalid arguments" % tag_name
   format_string, var_name = m.groups()
   return LatestGalleries(format_string[0], var_name)
+
+class LatestPhotos(template.Node):
+  def __init__(self, format_string, var_name):
+    self.format_string = format_string
+    self.var_name = var_name
+  
+  def render(self, context):
+    content_type = ContentType.objects.get(app_label='photologue', model='photo')
+    Photo = content_type.model_class()
+    photos = Photo.objects.filter(is_public=True).order_by('-pub_date')[:int(self.format_string)]
+    context[self.var_name] = photos
+    return ''
+
+@register.tag(name='get_latest_photos')
+def do_get_latest_photos(parser, token):
+  """
+  Gets any number of latest photos and stores them in a variable.
+  
+  Syntax::
+  
+    {% get_latest_photos [limit] as [var_name] %}
+  
+  Example usage::
+    
+    {% get_latest_photos 10 as latest_gallery_list %}
+  """
+  try:
+    tag_name, arg = token.contents.split(None, 1)
+  except ValueError:
+    raise template.TemplateSyntaxError, "%s tag requires arguments" % token.contents.split()[0]
+  m = re.search(r'(.*?) as (\w+)', arg)
+  if not m:
+    raise template.TemplateSyntaxError, "%s tag had invalid arguments" % tag_name
+  format_string, var_name = m.groups()
+  return LatestPhotos(format_string[0], var_name)

@@ -1,7 +1,8 @@
+{% load i18n %}
 <li id="calendar" class="widget widget_calendar">
-	<h2 class="widgettitle">Calendario</h2>
+	<h2 class="widgettitle">{% trans "Calendar" %}</h2>
 	<div id="calendar_wrap">
-		<table id="wp-calendar" summary="Calendario">
+		<table id="wp-calendar" summary="{% trans "Calendar" %}">
 			<caption>{{ basedate|date:"F Y" }}</caption>
 			<thead>
 				<tr>
