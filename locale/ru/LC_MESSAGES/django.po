@@ -1,0 +1,1698 @@
+# Russian translation for byteflow package. 
+# This file is distributed under the same license as the byteflow package.
+# Grigoriy Petukhov, 2008.
+# Alexander Solovyov, 2008.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-14 15:19+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: accounts/forms.py:10 blog/models.py:41 blogroll/models.py:12
+#: discussion/forms.py:45
+msgid "Name"
+msgstr "Имя"
+
+#: accounts/forms.py:11 discussion/forms.py:46
+#: templates/openid/complete.html:17 templates/openid/complete.html.py:25
+msgid "Email"
+msgstr "Email"
+
+#: accounts/forms.py:11
+msgid "Changing email requires activation"
+msgstr "Смена email'а требует активации"
+
+#: accounts/forms.py:12
+msgid "Site"
+msgstr "Сайт"
+
+#: accounts/forms.py:13 accounts/forms.py:14 templates/openid/complete.html:26
+msgid "Password"
+msgstr "Пароль"
+
+#: accounts/forms.py:13
+#, fuzzy
+msgid "Leave blank to keep current"
+msgstr "Оставьте пустым, чтобы не изменять"
+
+#: accounts/forms.py:14
+msgid "Repeat, to catch typos"
+msgstr "Повторите для предотвращения опечаток"
+
+#: accounts/forms.py:31
+msgid "This address already belongs to other user"
+msgstr "Этот адрес уже закреплён за другим пользователем"
+
+#: accounts/forms.py:33
+msgid "This field is required"
+msgstr "Это обязательное поле"
+
+#: accounts/forms.py:42
+msgid "You must type the same password each time"
+msgstr "Вы должны ввести один и тот же пароль оба раза"
+
+#: accounts/views.py:41
+#, fuzzy
+msgid "Email or password was not supplied"
+msgstr "Email или пароль неверны!"
+
+#: accounts/views.py:48
+msgid "Email or password are incorrect!"
+msgstr "Email или пароль неверны!"
+
+#: accounts/views.py:71
+msgid "Activation does not exist or already expired."
+msgstr "Ключ неверен или просрочен."
+
+#: accounts/views.py:83
+msgid ""
+"Password succesfully resetted. Message with new password was sent to your "
+"email."
+msgstr ""
+"Пароль успешно обнулён. Сообщение с новым паролем было отослано на Ваш email."
+
+#: accounts/views.py:89
+msgid "Message with instructions to reset password was sent to your email."
+msgstr ""
+"Сообщение с инструкциями по обнулению пароля были отосланы на Ваш email."
+
+#: accounts/views.py:91
+msgid "Sorry, no one user is associated with this email."
+msgstr "Этот email не существует в базе."
+
+#: accounts/views.py:99
+msgid "You have succesfully changed your email address!"
+msgstr "Вы успешно сменили свой email!"
+
+#: accounts/views.py:105
+msgid "Comment approval error"
+msgstr "Ошибка подтверждения комментария."
+
+#: accounts/views.py:124
+msgid "Changes to profile saved."
+msgstr "Изменения профиля сохранены."
+
+#: blog/models.py:42
+msgid "Slug"
+msgstr "Слаг"
+
+#: blog/models.py:45
+#, fuzzy
+msgid "Post teaser"
+msgstr "Публикации"
+
+#: blog/models.py:46
+msgid "Text"
+msgstr "Содержимое"
+
+#: blog/models.py:47
+msgid "Render method"
+msgstr "Метод рендеринга"
+
+#: blog/models.py:48
+msgid "HTML"
+msgstr "HTML"
+
+#: blog/models.py:49 blog/models.py:50 discussion/models.py:83
+msgid "Date"
+msgstr "Дата"
+
+#: blog/models.py:130
+msgid "view"
+msgstr "Смотреть"
+
+#: blog/views.py:74
+msgid "Please look in your mailbox for info about your account."
+msgstr ""
+"Пожалуйста, проверьте свой почтовый ящик - должна прийти информация о Вашей "
+"учётной записи"
+
+#: blog/views.py:77
+msgid "Please look in your mailbox for comment approval link."
+msgstr ""
+"Пожалуйста, проверьте свой почтовый ящик - должна прийти ссылка о "
+"подтверждении комментария"
+
+#: blogroll/models.py:11
+msgid "URL"
+msgstr ""
+
+#: blogroll/models.py:13
+msgid "Relations"
+msgstr "Связи"
+
+#: blogroll/models.py:14
+msgid "Order"
+msgstr "Порядок"
+
+#: blogroll/models.py:14
+msgid "You can order links by this field. Link with smaller number goes first."
+msgstr ""
+"Вы можете упорядочить ссылки по этому полю. Ссылка с меньшим номером "
+"показывается раньше."
+
+#: blogroll/models.py:16
+msgid "Friendship relation"
+msgstr "Платонические отношения"
+
+#: blogroll/models.py:17
+msgid "Physical relation"
+msgstr "Физические?? отношения"
+
+#: blogroll/models.py:18
+msgid "Profesional relation"
+msgstr "Профессиональные связи"
+
+#: blogroll/models.py:19
+msgid "Geographical relation"
+msgstr "Географическая связь"
+
+#: blogroll/models.py:20
+msgid "Family relation"
+msgstr "Семейные связи"
+
+#: blogroll/models.py:21
+msgid "Romantic relation"
+msgstr "Личная связь"
+
+#: blogroll/models.py:22
+#, fuzzy
+msgid "Identity relation"
+msgstr "Личная связь"
+
+#: blogroll/models.py:42
+msgid "Link"
+msgstr "Ссылка"
+
+#: blogroll/models.py:43
+msgid "Links"
+msgstr "Ссылки"
+
+#: blogroll/relations.py:4
+msgid "contact"
+msgstr "В контакте"
+
+#: blogroll/relations.py:5
+msgid "acquaintance"
+msgstr "Знакомый"
+
+#: blogroll/relations.py:6
+msgid "friend"
+msgstr "Друг"
+
+#: blogroll/relations.py:10
+msgid "met"
+msgstr "Виделись лично"
+
+#: blogroll/relations.py:14
+msgid "co-worker"
+msgstr "Сотрудник по работе"
+
+#: blogroll/relations.py:15
+msgid "colleague"
+msgstr "Общие интересы по работе"
+
+#: blogroll/relations.py:19
+msgid "co-resident"
+msgstr "сосед по улице"
+
+#: blogroll/relations.py:20
+msgid "neighbor"
+msgstr "сосед по ..."
+
+#: blogroll/relations.py:24
+msgid "child"
+msgstr "ребёнок"
+
+#: blogroll/relations.py:25
+msgid "parent"
+msgstr "родитель"
+
+#: blogroll/relations.py:26
+msgid "sibling"
+msgstr "брат, сестра"
+
+#: blogroll/relations.py:27
+msgid "spouse"
+msgstr "супруг, супруга"
+
+#: blogroll/relations.py:28
+msgid "kin"
+msgstr "родственник"
+
+#: blogroll/relations.py:32
+msgid "muse"
+msgstr "водхновление"
+
+#: blogroll/relations.py:33
+msgid "crush"
+msgstr "влечение"
+
+#: blogroll/relations.py:34 fleshin/models.py:93
+msgid "date"
+msgstr "Любовники"
+
+#: blogroll/relations.py:35
+msgid "sweetheart"
+msgstr "Любовь"
+
+#: blogroll/relations.py:39
+msgid "me"
+msgstr "Да это же я!"
+
+#: captcha/fields.py:42
+msgid "Captcha"
+msgstr "Каптча"
+
+#: captcha/fields.py:43
+msgid "Please, enter symbols, which you see on the image"
+msgstr "Пожалуйста, введите символы, которые вы видите на изображении"
+
+#: captcha/fields.py:52
+msgid "Wrong answer"
+msgstr "Неправильный ответ"
+
+#: contrib/django-robots-read-only/robots/models.py:23
+msgid "pattern"
+msgstr ""
+
+#: contrib/django-robots-read-only/robots/models.py:23
+msgid ""
+"Case-sensitive. A missing trailing slash does also match to files which "
+"start with the name of the pattern, e.g., '/admin' matches /admin.html too. "
+"Some major search engines allow an asterisk (*) as a wildcard and a dollar "
+"sign ($) to match the end of the URL, e.g., '/*.jpg$'."
+msgstr ""
+
+#: contrib/django-robots-read-only/robots/models.py:26
+#: contrib/django-robots-read-only/robots/models.py:27
+msgid "url"
+msgstr ""
+
+#: contrib/django-robots-read-only/robots/models.py:47
+msgid "robot"
+msgstr "робот"
+
+#: contrib/django-robots-read-only/robots/models.py:47
+msgid ""
+"This should be a user agent string like 'Googlebot'. Enter an asterisk (*) "
+"for all user agents. For a full list look at the <a target=_blank "
+"href='http://www.robotstxt.org/wc/active/html/index.html'>database of Web "
+"Robots</a>."
+msgstr ""
+
+#: contrib/django-robots-read-only/robots/models.py:48
+msgid "These are URLs which are allowed to be accessed by web robots."
+msgstr ""
+
+#: contrib/django-robots-read-only/robots/models.py:49
+msgid "These are URLs which are not allowed to be accessed by web robots."
+msgstr ""
+
+#: contrib/django-robots-read-only/robots/models.py:51
+msgid "crawl delay"
+msgstr ""
+
+#: contrib/django-robots-read-only/robots/models.py:54
+msgid "rule"
+msgstr ""
+
+#: contrib/django-robots-read-only/robots/models.py:55
+msgid "rules"
+msgstr ""
+
+#: contrib/django-robots-read-only/robots/models.py:60
+#: contrib/django-robots-read-only/robots/models.py:87
+msgid "URL patterns"
+msgstr ""
+
+#: contrib/django-robots-read-only/robots/models.py:61
+#: contrib/django-robots-read-only/robots/models.py:88 fleshin/models.py:143
+msgid "Advanced options"
+msgstr ""
+
+#: contrib/django-robots-read-only/robots/models.py:71
+#: contrib/django-robots-read-only/robots/models.py:75
+msgid "and"
+msgstr ""
+
+#: contrib/django-robots-read-only/robots/models.py:72
+msgid "allowed"
+msgstr ""
+
+#: contrib/django-robots-read-only/robots/models.py:76
+msgid "disallowed"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/__init__.py:22
+#, fuzzy, python-format
+msgid "The model %s has already been registered."
+msgstr "Этот адрес уже закреплён за другим пользователем"
+
+#: contrib/django-tagging-read-only/tagging/fields.py:72
+#, python-format
+msgid "%s can only be set on instances."
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/forms.py:22
+#: contrib/django-tagging-read-only/tagging/validators.py:19
+#, python-format
+msgid "Each tag may be no more than %s characters long."
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/models.py:62
+#, python-format
+msgid "No tags were given: \"%s\"."
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/models.py:64
+#, python-format
+msgid "Multiple tags were given: \"%s\"."
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/models.py:464 fleshin/models.py:43
+#: photologue/models.py:469 photologue/models.py:551
+#, fuzzy
+msgid "name"
+msgstr "Имя"
+
+#: contrib/django-tagging-read-only/tagging/models.py:470
+#: contrib/django-tagging-read-only/tagging/models.py:483
+msgid "tag"
+msgstr "Тэг"
+
+#: contrib/django-tagging-read-only/tagging/models.py:471
+#: photologue/models.py:104 photologue/models.py:166 photologue/models.py:242
+#, fuzzy
+msgid "tags"
+msgstr "Тэги"
+
+#: contrib/django-tagging-read-only/tagging/models.py:484
+msgid "content type"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/models.py:485
+msgid "object id"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/models.py:493
+msgid "tagged item"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/models.py:494
+msgid "tagged items"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/utils.py:187
+msgid ""
+"If a list or tuple of tags is provided, they must all be tag names, Tag "
+"objects or Tag ids."
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/utils.py:189
+#, fuzzy
+msgid "The tag input given was invalid."
+msgstr "Неверный OpenID"
+
+#: contrib/django-tagging-read-only/tagging/utils.py:234
+#, python-format
+msgid "Invalid distribution algorithm specified: %s."
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/validators.py:27
+msgid "Multiple tags were given."
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/validators.py:30
+#, python-format
+msgid "A tag may be no more than %s characters long."
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/views.py:33
+msgid "tagged_object_list must be called with a queryset or a model."
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/views.py:39
+msgid "tagged_object_list must be called with a tag."
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/views.py:43
+#, python-format
+msgid "No Tag found matching \"%s\"."
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:19
+#, python-format
+msgid "tags_for_model tag was given an invalid model: %s"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:32
+#, python-format
+msgid "tag_cloud_for_model tag was given an invalid model: %s"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:56
+#, python-format
+msgid "tagged_objects tag was given an invalid model: %s"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:89
+#, python-format
+msgid "%s tag requires either three or five arguments"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:91
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:143
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:198
+#, python-format
+msgid "second argument to %s tag must be 'as'"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:94
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:147
+#, python-format
+msgid "if given, fourth argument to %s tag must be 'with'"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:96
+#, python-format
+msgid "if given, fifth argument to %s tag must be 'counts'"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:141
+#, python-format
+msgid "%s tag requires either three or between five and seven arguments"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:155
+#, python-format
+msgid "%(tag)s tag's '%(option)s' option was not a valid integer: '%(value)s'"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:164
+#, python-format
+msgid "%(tag)s tag's '%(option)s' option was not a valid choice: '%(value)s'"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:170
+#, python-format
+msgid "%(tag)s tag was given an invalid option: '%(option)s'"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:175
+#, python-format
+msgid "%(tag)s tag was given a badly formatted option: '%(option)s'"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:196
+#, python-format
+msgid "%s tag requires exactly three arguments"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:221
+#, python-format
+msgid "%s tag requires exactly five arguments"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:223
+#, python-format
+msgid "second argument to %s tag must be 'in'"
+msgstr ""
+
+#: contrib/django-tagging-read-only/tagging/templatetags/tagging_tags.py:225
+#, python-format
+msgid "fourth argument to %s tag must be 'as'"
+msgstr ""
+
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/app_settings.html:7
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/site_settings.html:7
+#, fuzzy
+msgid "Documentation"
+msgstr "Личная связь"
+
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/app_settings.html:7
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/site_settings.html:7
+#, fuzzy
+msgid "Change password"
+msgstr "пароль"
+
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/app_settings.html:7
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/site_settings.html:7
+#, fuzzy
+msgid "Log out"
+msgstr "Выйти"
+
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/app_settings.html:10
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/site_settings.html:10
+#, fuzzy
+msgid "Home"
+msgstr "Да это же я!"
+
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/app_settings.html:11
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/site_settings.html:11
+msgid "Edit Settings"
+msgstr ""
+
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/app_settings.html:18
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/site_settings.html:18
+#, fuzzy
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] "Пожалуйста, укажите ваш email"
+msgstr[1] "Пожалуйста, укажите ваш email"
+
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/app_settings.html:26
+#, python-format
+msgid "Settings included in the %(name)s class."
+msgstr ""
+
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/app_settings.html:27
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/site_settings.html:27
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/site_settings.html:32
+#, fuzzy, python-format
+msgid "%(name)s"
+msgstr "Имя"
+
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/app_settings.html:50
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/site_settings.html:65
+msgid "You don't have permission to edit values."
+msgstr ""
+
+#: contrib/django-values-read-only/dbsettings/templates/dbsettings/site_settings.html:26
+#, python-format
+msgid "Models available in the %(name)s application."
+msgstr ""
+
+#: discussion/forms.py:30
+msgid "You are trying to reply to unavailable comment"
+msgstr "Вы пытаетесь подтвердить несуществующий комментарий"
+
+#: discussion/forms.py:32
+msgid "Trying to reply to comment from another object"
+msgstr "Попытка ответить на комментарий к другому объекту"
+
+#: discussion/forms.py:45
+msgid "Required. 30 chars of fewer."
+msgstr "Обязательное поле. Не больше 30 символов."
+
+#: discussion/forms.py:46
+msgid "Required."
+msgstr "Обязательное поле"
+
+#: discussion/forms.py:54
+msgid "Are you human?"
+msgstr ""
+
+#: discussion/models.py:81
+msgid "Publishing date"
+msgstr "Дата публикации"
+
+#: discussion/models.py:84
+msgid "Body"
+msgstr "Сообщение"
+
+#: discussion/models.py:85
+msgid "Body HTML"
+msgstr "Сообщение (HTML)"
+
+#: fleshin/feeds.py:36
+msgid "Latest photos on site"
+msgstr ""
+
+#: fleshin/feeds.py:43
+#, python-format
+msgid "%(title)s's photos"
+msgstr ""
+
+#: fleshin/feeds.py:76
+msgid "Latest photo albums on site"
+msgstr ""
+
+#: fleshin/feeds.py:83
+#, python-format
+msgid "%(title)s's photo albums"
+msgstr ""
+
+#: fleshin/feeds.py:117
+#, python-format
+msgid "%(title)s: photos tagged \"%(tag name)s\""
+msgstr ""
+
+#: fleshin/feeds.py:121
+#, python-format
+msgid "Latest photos for tag \"%(tag name)s\""
+msgstr ""
+
+#: fleshin/feeds.py:159
+#, python-format
+msgid "%(title)s: photos of album \"%(album name)s\""
+msgstr ""
+
+#: fleshin/feeds.py:163
+#, python-format
+msgid "Latest photos for album \"%(album name)s\""
+msgstr ""
+
+#: fleshin/feeds.py:188
+msgid "Latest comments on photo albums"
+msgstr ""
+
+#: fleshin/feeds.py:195
+#, python-format
+msgid "%(title)s's photo comments"
+msgstr ""
+
+#: fleshin/models.py:45 fleshin/models.py:87 photologue/models.py:98
+#: photologue/models.py:234
+#, fuzzy
+msgid "slug"
+msgstr "Слаг"
+
+#: fleshin/models.py:48
+msgid ""
+"Automatically built from the name. A slug is a short label generally used in "
+"URLs."
+msgstr ""
+
+#: fleshin/models.py:51 fleshin/models.py:101 photologue/models.py:100
+#: photologue/models.py:162
+msgid "description"
+msgstr ""
+
+#: fleshin/models.py:58 fleshin/models.py:114
+msgid "album"
+msgstr ""
+
+#: fleshin/models.py:59
+msgid "albums"
+msgstr ""
+
+#: fleshin/models.py:78 fleshin/models.py:128 photologue/models.py:249
+msgid "photo"
+msgstr ""
+
+#: fleshin/models.py:83 photologue/models.py:552
+msgid "width"
+msgstr ""
+
+#: fleshin/models.py:84 photologue/models.py:553
+#, fuzzy
+msgid "height"
+msgstr "редактировать"
+
+#: fleshin/models.py:85 photologue/models.py:161 photologue/models.py:236
+#, fuzzy
+msgid "caption"
+msgstr "Связи"
+
+#: fleshin/models.py:90
+msgid ""
+"Automatically built from the caption. A slug is a short label generally used "
+"in URLs."
+msgstr ""
+
+#: fleshin/models.py:94
+#, fuzzy
+msgid "time"
+msgstr "Да это же я!"
+
+#: fleshin/models.py:95
+msgid "place"
+msgstr ""
+
+#: fleshin/models.py:97 photologue/models.py:163 photologue/models.py:237
+msgid "photographer"
+msgstr ""
+
+#: fleshin/models.py:103 photologue/models.py:96 photologue/models.py:232
+msgid "date published"
+msgstr ""
+
+#: fleshin/models.py:105
+msgid "Photos in future dates are only published on correct date."
+msgstr ""
+
+#: fleshin/models.py:108
+msgid "published"
+msgstr ""
+
+#: fleshin/models.py:111
+msgid "publish on"
+msgstr ""
+
+#: fleshin/models.py:113
+#, fuzzy
+msgid "enable comments"
+msgstr "Комментировать"
+
+#: fleshin/models.py:129 photologue/models.py:103 photologue/models.py:250
+msgid "photos"
+msgstr ""
+
+#: fleshin/models.py:140
+msgid "Photo detail"
+msgstr ""
+
+#: fleshin/models.py:141
+#, fuzzy
+msgid "Status"
+msgstr "Тэги"
+
+#: fleshin/models.py:142
+msgid "Discussion"
+msgstr ""
+
+#: geotagging/models.py:26
+#, fuzzy
+msgid "Continent"
+msgstr "Комментарий"
+
+#: geotagging/models.py:27
+#, fuzzy
+msgid "Continents"
+msgstr "Комментарии"
+
+#: geotagging/models.py:53
+msgid "Country"
+msgstr ""
+
+#: geotagging/models.py:54
+#, fuzzy
+msgid "Countries"
+msgstr "От не-друзей"
+
+#: livejournal/models.py:11
+msgid "All"
+msgstr "Ото всех"
+
+#: livejournal/models.py:12
+msgid "Anonymous only"
+msgstr "От анонимных"
+
+#: livejournal/models.py:13
+msgid "non-Friends"
+msgstr "От не-друзей"
+
+#: livejournal/models.py:14
+msgid "None"
+msgstr "Ни от кого"
+
+#: livejournal/models.py:29
+msgid "Needs crossposting"
+msgstr "Требуется кросс-пост"
+
+#: livejournal/models.py:31
+#, fuzzy
+msgid "Turn off comments"
+msgstr "Последние комментарии"
+
+#: livejournal/models.py:32
+#, fuzzy
+msgid "Comments screening"
+msgstr "Прятать комментарии"
+
+#: livejournal/models.py:33
+msgid "Access level"
+msgstr "Уровень доступа"
+
+#: openidconsumer/forms.py:25 openidconsumer/views.py:112
+msgid "i-names are not supported"
+msgstr "i-name'ы не поддерживаются"
+
+#: openidconsumer/forms.py:32
+#, python-format
+msgid "next url \"%s\" is invalid"
+msgstr "следующий адрес - \"%s\" - неправильный"
+
+#: openidconsumer/forms.py:54
+msgid "This email is already in database. Please choose another."
+msgstr "Этот email адрес уже зарегистрирован. Пожалуйста, выберите другой."
+
+#: openidconsumer/forms.py:80
+msgid "This email don't exist. Please choose another."
+msgstr "Этот email адрес не существует. Пожалуйста, выберите другой."
+
+#: openidconsumer/forms.py:87
+msgid ""
+"Please enter a correct email and password. Note that both fields are case-"
+"sensitive."
+msgstr ""
+"Пожалуйста, введите корректные email и пароль. Оба поля чувствительны к "
+"регистру."
+
+#: openidconsumer/forms.py:89
+msgid "This account is inactive."
+msgstr "Эта учётная запись не активна."
+
+#: openidconsumer/views.py:118
+msgid "The OpenID was invalid"
+msgstr "Неверный OpenID"
+
+#: openidconsumer/views.py:144
+msgid "The request was cancelled"
+msgstr "Запрос был отменён"
+
+#: openidconsumer/views.py:278
+msgid "Invalid POST data"
+msgstr "Ваши POST данные полный отстой"
+
+#: openidconsumer/views.py:280
+msgid "You must have at least one OpenID if you don't have email!"
+msgstr "При отсутствии email адреса должен оставаться хотя бы один OpenID!"
+
+#: openidconsumer/views.py:286
+msgid "OpenID deassociated successfully"
+msgstr "OpenID деассоциирован успешно"
+
+#: photologue/models.py:33
+msgid ""
+"Photologue was unable to import the Python Imaging Library. Please confirm "
+"it`s installed and available on your current Python path."
+msgstr ""
+
+#: photologue/models.py:39
+msgid "Separate tags with spaces, put quotes around multiple-word tags."
+msgstr ""
+
+#: photologue/models.py:48
+msgid "Django-tagging was not found, tags will be treated as plain text."
+msgstr ""
+
+#: photologue/models.py:71
+#, python-format
+msgid ""
+"Chain multiple filters using the following pattern \"FILTER_ONE->FILTER_TWO-"
+">FILTER_THREE\". Image filters will be applied in order. The following "
+"filter are available: %s"
+msgstr ""
+
+#: photologue/models.py:76
+msgid "Very Low"
+msgstr ""
+
+#: photologue/models.py:77
+msgid "Low"
+msgstr ""
+
+#: photologue/models.py:78
+msgid "Medium-Low"
+msgstr ""
+
+#: photologue/models.py:79
+#, fuzzy
+msgid "Medium"
+msgstr "редактировать"
+
+#: photologue/models.py:80
+msgid "Medium-High"
+msgstr ""
+
+#: photologue/models.py:81
+msgid "High"
+msgstr ""
+
+#: photologue/models.py:82
+msgid "Very High"
+msgstr ""
+
+#: photologue/models.py:87
+msgid "Top"
+msgstr ""
+
+#: photologue/models.py:88
+msgid "Right"
+msgstr ""
+
+#: photologue/models.py:89
+msgid "Bottom"
+msgstr ""
+
+#: photologue/models.py:90
+msgid "Left"
+msgstr ""
+
+#: photologue/models.py:91
+msgid "Center (Default)"
+msgstr ""
+
+#: photologue/models.py:97 photologue/models.py:233
+#, fuzzy
+msgid "title"
+msgstr "Сайт"
+
+#: photologue/models.py:99
+msgid "A \"Slug\" is a unique URL-friendly title for an object."
+msgstr ""
+
+#: photologue/models.py:101 photologue/models.py:165 photologue/models.py:241
+msgid "is public"
+msgstr ""
+
+#: photologue/models.py:102
+msgid "Public galleries will be displayed in the default views."
+msgstr ""
+
+#: photologue/models.py:105
+#, fuzzy
+msgid "locations"
+msgstr "Связи"
+
+#: photologue/models.py:110
+msgid "gallery"
+msgstr ""
+
+#: photologue/models.py:111
+msgid "galleries"
+msgstr ""
+
+#: photologue/models.py:150
+#, fuzzy
+msgid "count"
+msgstr "В контакте"
+
+#: photologue/models.py:158
+msgid "images file (.zip)"
+msgstr ""
+
+#: photologue/models.py:159
+msgid "Select a .zip file of images to upload into a new Gallery."
+msgstr ""
+
+#: photologue/models.py:160
+msgid "title prefix"
+msgstr ""
+
+#: photologue/models.py:160
+msgid ""
+"All photos in the gallery will be given a title made up of this prefix + a "
+"sequential number."
+msgstr ""
+
+#: photologue/models.py:161
+msgid "Caption will be added to all photos."
+msgstr ""
+
+#: photologue/models.py:162
+msgid "A description of this Gallery."
+msgstr ""
+
+#: photologue/models.py:164 photologue/models.py:239
+msgid "info"
+msgstr ""
+
+#: photologue/models.py:164
+msgid ""
+"Additional information about the photograph such as date taken, equipment "
+"used etc.."
+msgstr ""
+
+#: photologue/models.py:165
+msgid ""
+"Uncheck this to make the uploaded gallery and included photographs private."
+msgstr ""
+
+#: photologue/models.py:172
+msgid "gallery upload"
+msgstr ""
+
+#: photologue/models.py:173
+msgid "gallery uploads"
+msgstr ""
+
+#: photologue/models.py:231
+msgid "photograph"
+msgstr ""
+
+#: photologue/models.py:238
+msgid "date taken"
+msgstr ""
+
+#: photologue/models.py:239
+msgid ""
+"Additional information about the photograph such location, equipment used "
+"etc.."
+msgstr ""
+
+#: photologue/models.py:240
+msgid "crop from"
+msgstr ""
+
+#: photologue/models.py:241
+msgid "Public photographs will be displayed in the default views."
+msgstr ""
+
+#: photologue/models.py:243 photologue/models.py:557
+msgid "effect"
+msgstr ""
+
+#: photologue/models.py:268
+msgid "An \"admin_thumbnail\" photo size has not been defined."
+msgstr ""
+
+#: photologue/models.py:272
+msgid "Thumbnail"
+msgstr ""
+
+#: photologue/models.py:470
+msgid "color"
+msgstr ""
+
+#: photologue/models.py:470
+msgid ""
+"A factor of 0.0 gives a black and white image, a factor of 1.0 gives the "
+"original image."
+msgstr ""
+
+#: photologue/models.py:471
+msgid "brightness"
+msgstr ""
+
+#: photologue/models.py:471
+msgid ""
+"A factor of 0.0 gives a black image, a factor of 1.0 gives the original "
+"image."
+msgstr ""
+
+#: photologue/models.py:472
+#, fuzzy
+msgid "contrast"
+msgstr "В контакте"
+
+#: photologue/models.py:472
+msgid ""
+"A factor of 0.0 gives a solid grey image, a factor of 1.0 gives the original "
+"image."
+msgstr ""
+
+#: photologue/models.py:473
+msgid "sharpness"
+msgstr ""
+
+#: photologue/models.py:473
+msgid ""
+"A factor of 0.0 gives a blurred image, a factor of 1.0 gives the original "
+"image."
+msgstr ""
+
+#: photologue/models.py:474
+msgid "filters"
+msgstr ""
+
+#: photologue/models.py:480
+msgid "photo effect"
+msgstr ""
+
+#: photologue/models.py:481
+msgid "photo effects"
+msgstr ""
+
+#: photologue/models.py:504
+#, python-format
+msgid "Photologue was unable to open the sample image: %s."
+msgstr ""
+
+#: photologue/models.py:510
+#, fuzzy
+msgid "Sample"
+msgstr "Имя"
+
+#: photologue/models.py:551
+msgid ""
+"Photo size name should contain only letters, numbers and underscores. "
+"Examples: \"thumbnail\", \"display\", \"small\", \"main_page_widget\"."
+msgstr ""
+
+#: photologue/models.py:552
+msgid "Leave to size the image to the set height"
+msgstr ""
+
+#: photologue/models.py:553
+msgid "Leave to size the image to the set width"
+msgstr ""
+
+#: photologue/models.py:554
+msgid "quality"
+msgstr ""
+
+#: photologue/models.py:554
+msgid "JPEG image quality."
+msgstr ""
+
+#: photologue/models.py:555
+msgid "crop to fit?"
+msgstr ""
+
+#: photologue/models.py:555
+msgid ""
+"If selected the image will be scaled and cropped to fit the supplied "
+"dimensions."
+msgstr ""
+
+#: photologue/models.py:556
+msgid "pre-cache?"
+msgstr ""
+
+#: photologue/models.py:556
+msgid "If selected this photo size will be pre-cached as photos are added."
+msgstr ""
+
+#: photologue/models.py:561
+msgid "photo size"
+msgstr ""
+
+#: photologue/models.py:562
+msgid "photo sizes"
+msgstr ""
+
+#: photologue/models.py:582
+msgid "A PhotoSize must have a positive height or width."
+msgstr ""
+
+#: photologue/templates/photologue/gallery_archive.html:8
+#: photologue/templates/photologue/gallery_archive.html:12
+msgid "Latest Photo Galleries"
+msgstr ""
+
+#: photologue/templates/photologue/gallery_archive.html:26
+#: photologue/templates/photologue/gallery_archive_day.html:21
+#: photologue/templates/photologue/gallery_archive_month.html:21
+#: photologue/templates/photologue/gallery_list.html:21
+msgid "No galleries were found."
+msgstr ""
+
+#: photologue/templates/photologue/gallery_archive.html:29
+#: photologue/templates/photologue/gallery_archive_day.html:24
+#: photologue/templates/photologue/gallery_archive_month.html:24
+#: photologue/templates/photologue/gallery_detail.html:24
+msgid "View all galleries."
+msgstr ""
+
+#: photologue/templates/photologue/gallery_archive_day.html:3
+#: photologue/templates/photologue/gallery_archive_day.html:7
+#: photologue/templates/photologue/gallery_archive_month.html:3
+#: photologue/templates/photologue/gallery_archive_month.html:7
+msgid "Galleries for"
+msgstr ""
+
+#: photologue/templates/photologue/gallery_detail.html:14
+msgid "Originally published"
+msgstr ""
+
+#: photologue/templates/photologue/gallery_list.html:3
+msgid "All Galleries"
+msgstr ""
+
+#: photologue/templates/photologue/gallery_list.html:27
+#: photologue/templates/photologue/photo_list.html:22
+#, fuzzy
+msgid "Previous"
+msgstr "Предыдущий день"
+
+#: photologue/templates/photologue/gallery_list.html:27
+#: photologue/templates/photologue/photo_list.html:22
+#, fuzzy
+msgid "page"
+msgstr "родитель"
+
+#: photologue/templates/photologue/gallery_list.html:27
+#: photologue/templates/photologue/photo_list.html:22
+msgid "of"
+msgstr ""
+
+#: photologue/templates/photologue/gallery_list.html:27
+#: photologue/templates/photologue/photo_list.html:22
+#, fuzzy
+msgid "Next"
+msgstr "Содержимое"
+
+#: photologue/templates/photologue/photo_archive.html:4
+#: photologue/templates/photologue/photo_archive.html:8
+#: templates/themes/paper/sidebar.html:45
+#, fuzzy
+msgid "Latest Photos"
+msgstr "Последние публикации"
+
+#: photologue/templates/photologue/photo_archive.html:17
+#: photologue/templates/photologue/photo_archive_day.html:16
+#: photologue/templates/photologue/photo_archive_month.html:17
+#: photologue/templates/photologue/photo_list.html:16
+msgid "No photos were found."
+msgstr ""
+
+#: photologue/templates/photologue/photo_archive.html:19
+#: photologue/templates/photologue/photo_archive_day.html:18
+#: photologue/templates/photologue/photo_archive_month.html:19
+msgid "View all photographs"
+msgstr ""
+
+#: photologue/templates/photologue/photo_archive_day.html:3
+#: photologue/templates/photologue/photo_archive_day.html:7
+#: photologue/templates/photologue/photo_archive_month.html:4
+#: photologue/templates/photologue/photo_archive_month.html:8
+#: photologue/templates/photologue/photo_archive_year.html:4
+#: photologue/templates/photologue/photo_archive_year.html:8
+msgid "Photos for"
+msgstr ""
+
+#: photologue/templates/photologue/photo_detail.html:13
+msgid "This photo is found in the following galleries:"
+msgstr ""
+
+#: photologue/templates/photologue/photo_list.html:3
+#: photologue/templates/photologue/photo_list.html:7
+msgid "All Photos"
+msgstr ""
+
+#: recaptcha/recaptcha_newforms.py:20
+msgid "Unknown error."
+msgstr ""
+
+#: recaptcha/recaptcha_newforms.py:21
+msgid "We weren't able to verify the public key. Please try again later."
+msgstr ""
+
+#: recaptcha/recaptcha_newforms.py:22
+msgid "We weren't able to verify the private key. Please try again later."
+msgstr ""
+
+#: recaptcha/recaptcha_newforms.py:23
+msgid "The challenge parameter of the verify script was incorrect."
+msgstr ""
+
+#: recaptcha/recaptcha_newforms.py:24
+msgid "The CAPTCHA solution was incorrect."
+msgstr ""
+
+#: recaptcha/recaptcha_newforms.py:25
+msgid ""
+"The parameters to /verify were incorrect, make sure you are passing all the "
+"required parameters.  Please try again later."
+msgstr ""
+
+#: recaptcha/recaptcha_newforms.py:26
+msgid ""
+"reCAPTCHA API keys are tied to a specific domain name for security reasons.  "
+"Please try again later."
+msgstr ""
+
+#: recaptcha/recaptcha_newforms.py:27
+msgid "Unable to contact the reCAPTCHA verify server.  Please try again later."
+msgstr ""
+
+#: recaptcha/recaptcha_newforms.py:64
+msgid "An error occured with the CAPTCHA service. Please try again."
+msgstr ""
+
+#: recaptcha/recaptcha_newforms.py:66
+msgid "Please enter the CAPTCHA solution."
+msgstr ""
+
+#: templates/head.html:18
+msgid "Login with"
+msgstr "Авторизоваться через"
+
+#: templates/head.html:19
+msgid "password"
+msgstr "пароль"
+
+#: templates/head.html:19
+msgid "or"
+msgstr "или"
+
+#: templates/head.html:20
+msgid "OpenID"
+msgstr "OpenID"
+
+#: templates/head.html:23
+msgid "Hello,"
+msgstr "Привет,"
+
+#: templates/head.html:32
+msgid "Admin"
+msgstr "Админка"
+
+#: templates/head.html:33
+msgid "Profile"
+msgstr "Профиль"
+
+#: templates/head.html:34
+msgid "Logout"
+msgstr "Выйти"
+
+#: templates/accounts/login.html:13 templates/accounts/openid.html:11
+#, fuzzy
+msgid "Login"
+msgstr "Ссылка"
+
+#: templates/accounts/profile_edit.html:5
+msgid "Profile editing"
+msgstr "Редактирование профиля"
+
+#: templates/accounts/profile_edit.html:8
+msgid "Associated OpenIDs"
+msgstr "Ассоциированные OpenID'ы"
+
+#: templates/accounts/reset.html:8
+msgid "Password reset"
+msgstr "Сброс пароля"
+
+#: templates/accounts/reset.html:13
+msgid "Please enter your email."
+msgstr "Пожалуйста, укажите ваш email"
+
+#: templates/accounts/reset.html:16
+msgid "Reset password"
+msgstr "Сбросить пароль"
+
+#: templates/blog/bookmarks.html:3
+msgid "Add post to"
+msgstr "Добавить пост в"
+
+#: templates/blog/bookmarks.html:5
+msgid "Add to"
+msgstr "Добавить в"
+
+#: templates/blog/comment.html:14
+msgid "reply"
+msgstr "ответить"
+
+#: templates/blog/comment.html:21
+msgid "edit"
+msgstr "редактировать"
+
+#: templates/blog/comment.html:25
+msgid "cancel"
+msgstr "отменить"
+
+#: templates/blog/comment.html:34
+msgid "delete"
+msgstr "удалить"
+
+#: templates/blog/comment_form.html:4
+#, python-format
+msgid "Comment form for &laquo;%(object)s&raquo;"
+msgstr "Форма комментирования для &laquo;%(object)s&raquo;"
+
+#: templates/blog/comment_form.html:9 templates/blog/post_detail.html:25
+msgid "Comment"
+msgstr "Комментарий"
+
+#: templates/blog/comment_form.html:10
+msgid "Preview"
+msgstr "Предпросмотр"
+
+#: templates/blog/comment_form.html:11
+msgid "Cancel"
+msgstr "Отменить"
+
+#: templates/blog/featured.html:17 templates/blog/post_entry.html:25
+#: templates/themes/paper/blog/post_entry.html:22
+msgid "continue&nbsp;reading"
+msgstr "продолжить&nbsp;чтение"
+
+#: templates/blog/post_archive_year.html:5
+#, fuzzy
+msgid "Posts year archive"
+msgstr "Нажмите для просмотра архива за год"
+
+#: templates/blog/post_archive_year.html:10
+#: templates/blog/post_archive_year.html:14 templates/blog/post_list.html:25
+#: templates/blog/post_list.html.py:26 templates/blog/post_list.html:27
+#: templates/themes/paper/blog/post_list.html:26
+#: templates/themes/paper/blog/post_list.html:27
+#: templates/themes/paper/blog/post_list.html:28
+msgid "Archive for"
+msgstr "Архив для"
+
+#: templates/blog/post_detail.html:29
+msgid "Pingbacks"
+msgstr "Пингбэки"
+
+#: templates/blog/post_detail.html:39
+msgid "Comments"
+msgstr "Комментарии"
+
+#: templates/blog/post_detail.html:41
+msgid "No comments for this post"
+msgstr "К этой публикации комментариев нет"
+
+#: templates/blog/post_entry.html:18
+#: templates/themes/paper/blog/post_entry.html:14
+msgid "comment, comments, comments"
+msgstr "комментарий, комментария, комментариев"
+
+#: templates/blog/post_entry.html:20
+#: templates/themes/paper/blog/post_entry.html:32
+msgid "pingback, pingbacks, pingbacks"
+msgstr "пингбэк, пингбэка, пингбэков"
+
+#: templates/blog/post_list.html:8
+#: templates/themes/paper/blog/post_list.html:8
+msgid "Posts"
+msgstr "Публикации"
+
+#: templates/blog/post_list.html:29
+#: templates/themes/paper/blog/post_list.html:30
+msgid "All articles, tagged with"
+msgstr "Все публикации с тэгом"
+
+#: templates/blog/post_list.html:44
+#: templates/themes/paper/blog/post_list.html:45
+msgid "Previous month"
+msgstr "Предыдущий месяц"
+
+#: templates/blog/post_list.html:45
+#: templates/themes/paper/blog/post_list.html:46
+msgid "Next month"
+msgstr "Следующий месяц"
+
+#: templates/blog/post_list.html:49
+#: templates/themes/paper/blog/post_list.html:50
+msgid "Previous day"
+msgstr "Предыдущий день"
+
+#: templates/blog/post_list.html:50
+#: templates/themes/paper/blog/post_list.html:51
+msgid "Next day"
+msgstr "Следующий день"
+
+#: templates/blog/post_list.html:53
+#: templates/themes/paper/blog/post_list.html:54
+#: templates/wpimport/post_list.html:12
+msgid "Older posts"
+msgstr "Старые публикации"
+
+#: templates/blog/post_list.html:55
+#: templates/themes/paper/blog/post_list.html:56
+#: templates/wpimport/post_list.html:14
+msgid "Newer posts"
+msgstr "Свежие публикации"
+
+#: templates/openid/complete.html:8
+msgid "Your OpenID is verified! "
+msgstr "Ваш OpenID аккаунт подтверждён"
+
+#: templates/openid/complete.html:10
+msgid "Associate your OpenID"
+msgstr "Ассоциируйте свой OpenID"
+
+#: templates/openid/complete.html:14
+msgid "A new account"
+msgstr "Новый аккаунт"
+
+#: templates/openid/complete.html:16
+msgid "Screen name"
+msgstr "Имя пользователя"
+
+#: templates/openid/complete.html:23
+#, fuzzy
+msgid "Associate with exisiting account"
+msgstr "Существующий аккаунт"
+
+#: templates/openid/list.html:5 templates/openid/list.html.py:8
+msgid "Your OpenIDs"
+msgstr "Ваши OpenID аккаунты"
+
+#: templates/openid/list.html:15
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/openid/list.html:22
+msgid "Associate new OpenID"
+msgstr "Ассоциировать новый OpenID"
+
+#: templates/openid/list.html:23 templates/openid/signin.html:13
+msgid "OpenID URL"
+msgstr "Адрес OpenID"
+
+#: templates/openid/list.html:25
+msgid "Associate"
+msgstr "Ассоциировать"
+
+#: templates/openid/signin.html:5 templates/openid/signin.html.py:8
+#: templates/openid/signin.html:15
+msgid "Sign in"
+msgstr "Зарегистрироваться"
+
+#: templates/openid/signin.html:12
+msgid "Sign in using your OpenID"
+msgstr "Зарегистрироваться через OpenID"
+
+#: templates/openidserver/accept_root.html:6
+#, python-format
+msgid ""
+"\n"
+"  <p>We've got a request from <a href=\"%(root)s\">%(root)s</a> \n"
+"    to authenticate you as <a href=\"%(identity)s\">%(identity)s</a>.</p>\n"
+"  <p>Click 'Accept' to accept authentication request (you'll be redirected "
+"to %(return_to)s).</p>\n"
+"  <p>Click 'Dismiss' to dismiss request (and to go to %(cancel_url)s).</p>\n"
+"  "
+msgstr ""
+
+#: templates/openidserver/accept_root.html:15
+msgid "Remember my answer"
+msgstr ""
+
+#: templates/openidserver/accept_root.html:17
+msgid "Accept"
+msgstr ""
+
+#: templates/openidserver/accept_root.html:18
+msgid "Dismiss"
+msgstr ""
+
+#: templates/tagging/tag_cloud.html:7 templates/tagging/tag_string.html:7
+msgid "Click to filter by"
+msgstr "Нажмите для фильтрации по"
+
+#: templates/templatetags/datelinks.html:1
+msgid "Click to see day archive"
+msgstr "Нажмите для просмотра архива за день"
+
+#: templates/templatetags/datelinks.html:1
+msgid "Click to see month archive"
+msgstr "Нажмите для просмотра архива за месяц"
+
+#: templates/templatetags/datelinks.html:1
+msgid "Click to see year archive"
+msgstr "Нажмите для просмотра архива за год"
+
+#: templates/themes/paper/head.html:9
+#, fuzzy
+msgid "Blog"
+msgstr "Блогролл"
+
+#: templates/themes/paper/head.html:10
+msgid "My Photos"
+msgstr ""
+
+#: templates/themes/paper/head.html:10
+#, fuzzy
+msgid "Photos"
+msgstr "Публикации"
+
+#: templates/themes/paper/head.html:11
+msgid "My videos"
+msgstr ""
+
+#: templates/themes/paper/head.html:11
+msgid "Videos"
+msgstr ""
+
+#: templates/themes/paper/sidebar.html:23
+#, fuzzy
+msgid "Latest Posts"
+msgstr "Последние публикации"
+
+#: templates/themes/paper/sidebar.html:33
+msgid "Latest Galleries"
+msgstr ""
+
+#: templates/themes/paper/blog/calendar.html:3
+#: templates/themes/paper/blog/calendar.html:5
+msgid "Calendar"
+msgstr ""
+
+#~ msgid "name translation"
+#~ msgstr "Перевод имени"
+
+#~ msgid "Tags"
+#~ msgstr "Тэги"
+
+#, fuzzy
+#~ msgid "Blog entries feed"
+#~ msgstr "Фид публикаций"
+
+#~ msgid "Blogroll"
+#~ msgstr "Блогролл"
+
+#~ msgid "About"
+#~ msgstr "О блоге"
+
+#~ msgid "Login with password"
+#~ msgstr "Авторизоваться через пароль"
+
+#~ msgid "Forgot password?"
+#~ msgstr "Забыли пароль?"
+
+#~ msgid "Login with OpenID"
+#~ msgstr "Авторизоваться через OpenID"
+
+#, fuzzy
+#~ msgid "Previous year"
+#~ msgstr "Предыдущий день"
+
+#, fuzzy
+#~ msgid "Next year"
+#~ msgstr "Следующий день"
+
+#~ msgid "Last comments"
+#~ msgstr "Последние комментарии"
+
+#~ msgid "No posts on blog"
+#~ msgstr "Публикаций нет"
+
+#~ msgid "Useful information"
+#~ msgstr "Полезная информация"
+
+#~ msgid "Blog feed"
+#~ msgstr "Фид публикаций"
+
+#~ msgid "Comments feed"
+#~ msgstr "Фид комментариев"
+
+#~ msgid "Advertize"
+#~ msgstr "Реклама"
+
+#~ msgid "blog entries feed"
+#~ msgstr "Фид публикаций"
+
+#~ msgid "comments feed"
+#~ msgstr "Фид комментариев"
+
+#~ msgid "Powered by "
+#~ msgstr "Работает на "
+
+#~ msgid "Authorization with email and password"
+#~ msgstr "Авторизация через email и пароль"
+
+#~ msgid "Signin"
+#~ msgstr "Войти"
+
+#~ msgid "Authorization with OpenID"
+#~ msgstr "Авторизация через OpenID"
+
+#~ msgid "No comments on blog"
+#~ msgstr "Комментариев нет"
+
+#~ msgid "Popular posts"
+#~ msgstr "Популярные публикации"
