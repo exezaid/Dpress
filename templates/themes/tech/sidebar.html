@@ -4,6 +4,7 @@
 {% load tagging_tags %}
 {% load bfmarkup %}
 {% load photologue %}
+{% load friendsite %}
 <div class="sidebar" id="sidebar1">
     <h3>by tag</h3>
 	{% tag_cloud_for_model blog.Post as tags %}
@@ -49,33 +50,35 @@
     {% endfor %}
     </ul>
 
+    {% get_friendsites 10 as friendsites_list %}
+	{% if friendsites_list %}
     <h3>related links</h3>
     <ul class="link-list">
-        <li><a href="http://www.djangoproject.com">Django</a></li>
-        <li><a href="http://www.python.org">Python</a></li>
-        <li><a href="http://www.firefox.org">Firefox</a></li>
+	    {% for friendsite in friendsites_list %}
+			<li><a href="{{ friendsite.url }}">{{ friendsite.name }}</a></li>
+	    {% endfor %}
     </ul>
+	{% endif %}
+	{% get_latest_galleries 5 as latest_gallery_list %}
+	{% if latest_gallery_list %}
+    <h3>{% trans "Latest Galleries" %}</h3>
+	<ul>
+	    {% for gallery in latest_gallery_list %}
+		<li><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></li>
+	    {% endfor %}
+	</ul>
+	{% endif %}
 
-		{% get_latest_galleries 5 as latest_gallery_list %}
-		{% if latest_gallery_list %}
-	    <h3>{% trans "Latest Galleries" %}</h3>
-		<ul>
-		    {% for gallery in latest_gallery_list %}
-			<li><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></li>
-		    {% endfor %}
-		</ul>
-		{% endif %}
-
-		{% get_latest_photos 8 as latest_photos_list %}
-		{% if latest_photos_list %}
-	    <h3>{% trans "Latest Photos" %}</h3>
-		<ul>
-		    {% for photo in latest_photos_list %}
-			<li>
-			<a href="{{ photo.gallery.get_absolute_url }}" title="{{ photo.title }}"><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>
-			</li>
-		    {% endfor %}
+	{% get_latest_photos 8 as latest_photos_list %}
+	{% if latest_photos_list %}
+    <h3>{% trans "Latest Photos" %}</h3>
+	<ul>
+	    {% for photo in latest_photos_list %}
+		<li>
+		<a href="{{ photo.gallery.get_absolute_url }}" title="{{ photo.title }}"><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>
 		</li>
-		{% endif %}
+	    {% endfor %}
+	</li>
+	{% endif %}
 
 </div>

@@ -35,11 +35,11 @@ def do_get_latest_galleries(parser, token):
     tag_name, arg = token.contents.split(None, 1)
   except ValueError:
     raise template.TemplateSyntaxError, "%s tag requires arguments" % token.contents.split()[0]
-  m = re.search(r'(.*?) as (\w+)', arg)
+  m = re.search(r'(\d+) as (\w+)', arg)
   if not m:
     raise template.TemplateSyntaxError, "%s tag had invalid arguments" % tag_name
   format_string, var_name = m.groups()
-  return LatestGalleries(format_string[0], var_name)
+  return LatestGalleries(format_string, var_name)
 
 class LatestPhotos(template.Node):
   def __init__(self, format_string, var_name):
@@ -70,8 +70,8 @@ def do_get_latest_photos(parser, token):
     tag_name, arg = token.contents.split(None, 1)
   except ValueError:
     raise template.TemplateSyntaxError, "%s tag requires arguments" % token.contents.split()[0]
-  m = re.search(r'(.*?) as (\w+)', arg)
+  m = re.search(r'(\d+) as (\w+)', arg)
   if not m:
     raise template.TemplateSyntaxError, "%s tag had invalid arguments" % tag_name
   format_string, var_name = m.groups()
-  return LatestPhotos(format_string[0], var_name)
+  return LatestPhotos(format_string, var_name)

@@ -36,11 +36,11 @@ def do_get_latest_posts(parser, token):
     tag_name, arg = token.contents.split(None, 1)
   except ValueError:
     raise template.TemplateSyntaxError, "%s tag requires arguments" % token.contents.split()[0]
-  m = re.search(r'(.*?) as (\w+)', arg)
+  m = re.search(r'(\d+) as (\w+)', arg)
   if not m:
     raise template.TemplateSyntaxError, "%s tag had invalid arguments" % tag_name
   format_string, var_name = m.groups()
-  return LatestPosts(format_string[0], var_name)
+  return LatestPosts(format_string, var_name)
 
 
 @register.inclusion_tag('tagging/tag_cloud.html')
