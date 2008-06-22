@@ -1,0 +1,11 @@
+{% load i18n %}
+<div id="header">
+    <h1><a href="/blog/"><span>{{ settings.BLOG_NAME }}</a></h1>
+    <ul>
+        <li><a href="/blog/">{% trans "blog" %}</a></li>
+        <li><a href="/todo/">{% trans "todo" %}</a></li>
+        <li><a href="/photo/gallery/page/1/" title='{% trans "My Photos" %}'>{% trans "photos" %}</a></li>
+        <li>code</li>
+        <li><a href="/blog/2005/10/22/alberto-paro/">about</a></li>
+    </ul>
+</div>

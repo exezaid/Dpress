@@ -4,7 +4,7 @@
 
 {% for tag in tags %}
 <a href="{% url post_by_tag tag.name %}"
-   title="{% trans "Click to filter by" %} {{ tag.get_name }}"
+   title="{% trans "Click to filter by" %} {{ tag.name }}"
    class="tag"
-   rel="tag">{{ tag.get_name }}</a>{% if not forloop.last %}, {% endif %}
+   rel="tag">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
 {% endfor %}

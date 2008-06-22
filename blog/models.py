@@ -31,7 +31,7 @@ class Language(models.Model):
     small_icon = models.ImageField(core=True,upload_to='flags')
 
     class Admin:
-        pass
+        list_display = ('name', 'small_icon')
 
     def __unicode__(self):
         return self.name
@@ -41,7 +41,7 @@ class Post(models.Model):
     name = models.CharField(_(u'Name'), max_length=settings.NAME_LENGTH)
     slug = models.SlugField(_(u'Slug'), max_length=settings.NAME_LENGTH, blank=True,
                             prepopulate_from=('name', ), unique_for_date="date")
-    language = models.ForeignKey(Language)
+    language = models.ForeignKey(Language, blank=True, null=True)
     teaser = models.TextField(_(u'Post teaser'), blank=True)
     text = models.TextField(_(u'Text'))
     render_method = models.CharField(_(u'Render method'), max_length=15, choices=RENDER_METHODS, default=settings.RENDER_METHOD)
@@ -61,11 +61,11 @@ class Post(models.Model):
     featured_objects = FeaturedPostManager()
 
     class Admin:
-        list_display = ('name', 'date', 'author', 'enable_comments', 'comments_open', 'is_draft', 'view_link')
+        list_display = ('name', 'date', 'author', 'enable_comments', 'comments_open', 'is_draft', 'view_link', 'language')
         search_fields = ('name', 'text')
         list_filter = ('date', )
         fields = (
-            (None, {'fields': ('author', ('name', 'slug'), 'tags', 'text', 'render_method', 'date', ('is_draft', 'enable_comments'))}),
+            (None, {'fields': ('author', ('name', 'slug'), 'tags', 'text', 'render_method', 'date', 'language', ('is_draft', 'enable_comments'))}),
             ('Featured post', {'classes': 'collapse', 'fields': ('is_featured', 'teaser')}),
             )
         if settings.WYSIWYG_ENABLE:

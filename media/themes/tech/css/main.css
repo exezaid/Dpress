@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    color: #222;
+}
+img {
+    border: none;
+    vertical-align: middle;
+}
+h1, h2, h3, h4 {
+    font-weight: normal;
+}
+a {
+    color: #222;
+    text-decoration: none;
+}
+a:hover {
+    color: #000;
+    border-bottom: 1px solid #8f0;
+}
+#header {
+    height: 65px;
+    margin: 30px 50px 0px 50px;
+    border-bottom: 2px solid #000;
+    text-align: right;
+}
+#header ul {
+    list-style: none;
+}
+#header li {
+    display: inline;
+    margin-left: 0.5em;
+}
+#header h1 {
+    font-size: 200%;
+    font-weight: normal;
+    margin-bottom: 0.4em;
+}
+#header a:hover {
+    border-bottom: 2px solid #8f0;
+}
+#content {
+    position: relative;
+    width: auto;
+    margin-right: 450px;
+    margin-left: 50px;
+    z-index: 3;
+}
+#content p {
+    text-align: justify;
+    margin-bottom: 1em;
+}
+#content h2 {
+    font-size: 150%;
+    margin: 1em 0 0.2em 0;
+    border-bottom: 1px solid #ccc;
+}
+#content p a {
+    border-bottom: 1px solid #8f0;
+}
+#content p a:hover {
+    border-bottom: 2px solid #8f0;
+}
+#content p a:visited {
+    color: #444;
+}
+#content ul, #content ol { margin-left: 2em; margin-bottom: 0.5em; }
+#content ul { list-style-type: square; }
+.post-title {
+    font-size: 25px;
+    font-weight: normal;
+    padding: 10px 0;
+border-bottom: 2px solid #000;
+}
+.post-title a {
+    text-decoration: none;
+}
+
+.post-author {
+    font-size: 15px;
+    font-weight: normal;
+	border-bottom: 1px solid #000;
+}
+.post-author a {
+    text-decoration: none;
+}
+.post-date {
+    font-size: 80%;
+    color: #888;
+    text-align: right;
+    margin: 0.2em 0 2em 0;
+}
+.post-meta {
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+.post-meta a {
+    font-weight: normal;
+    border-bottom: 1px solid #8f0;
+}
+.post-meta a:hover {
+    border-bottom: 2px solid #8f0;
+}
+
+table.comment {
+    padding: 0;
+}
+tr.comment td {
+}
+td.comment-text {
+    font-size: 8pt;
+    width: 70%;
+    padding: 5px;
+    vertical-align: top;
+    border-bottom: 1px solid #eee;
+}
+
+td.comment-meta {
+    font-size: 8pt;
+    padding: 5px;
+    vertical-align: top;
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #eee;
+}
+
+td#owner {
+    background: #eee;
+}
+
+.sidebar {
+    position: absolute;
+    width: 150px;
+    top: 130px;
+}
+.sidebar a {
+    font-size: 80%;
+}
+.sidebar h3 {
+    font-size: 14px;
+    color: #000;
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+}
+.sidebar ul {
+    margin-bottom: 20px;
+    list-style: none;
+}
+.sidebar li {
+    padding-left: 17px;
+    margin-bottom: 0.2em;
+    background-repeat: no-repeat;
+}
+ul.post-list li {
+    background-image: url(../images/file.gif);
+    background-position: 0 0.2em;
+}
+ul.comment-list li {
+    background-image: url(../images/comment.gif);
+    background-position: 0 0.3em;
+}
+ul.tag-list li {
+    background-image: url(../images/tag.gif);
+    background-position: 0 6px;
+}
+ul.feed-list li {
+    background-image: url(../images/feed.gif);
+    background-position: 0 0.3em;
+}
+ul.link-list li {
+    background-image: url(../images/link.gif);
+    background-position: 0 0.3em;
+}
+#sidebar1 {
+    right: 250px;
+}
+#sidebar2 {
+    right: 50px;
+}
+
+.tag {
+    background-image: url(../images/tag.gif);
+    background-position: 0 6px;
+}
+
+
+#footer {
+    font-size: 80%;
+    color: #888;
+    text-align: center;
+    margin: 2em 0;
+}
+
+/*** Favorites ***/
+#fvorites h3 {
+    margin: 5px 0 0 0;
+    clear: left;
+}
+#fvorites ul {
+    margin: 0;
+    list-style-type: none;
+}
+#fvorites li {
+    float: left;
+    margin: 2px 5px;
+    width: 22%;
+    border-top: 1px solid #eeeeee;
+    border-left: 1px solid #eeeeee;
+    border-right: 3px solid #cccccc;
+    border-bottom: 2px solid #cccccc;
+}
+#fvorites li a {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*** code highlighting ***/
+/* for all languages */
+pre {
+    border: 1px solid #888;
+    padding: 0.5em;
+    margin: 0.5em 0 0.5em 0;
+    background: #eee;
+}
+pre .comment { color: #884; }
+pre .keyword { color: #80f; }
+pre .string { color: #a00; }
+
+/* C language */
+.c .preprocessor { color: #888; }
+
+/* C# language */
+.csharp .preprocessor { color: #888; }
+
+/* JavaScript language */
+.javascript .global { color: #80f; }
+
+/* CSS language */
+.css .property { color: #80f; }
+.css .selector { color: #080; }
+.css .unit { color: #888; }
+.css .url { color: #008; }
+
+/* HTML language */
+.html .element { color: #80f; }
+.html .attribute { color: #088; }
+.html .doctype { color: #888; }
+
+/* Tag cloud **************/
+
+.tag-1 { font-size: 70%; }
+.tag-2 { font-size: 85%; }
+.tag-3 { font-size: 100%; }
+.tag-4 { font-size: 115%; }
+.tag-5 { font-size: 130%; }

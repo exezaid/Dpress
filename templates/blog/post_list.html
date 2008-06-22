@@ -14,7 +14,7 @@
 {% if tags %}
 <link rel="alternate" 
       type="application/rss+xml" 
-      title="{{ settings.BLOG_NAME }}: posts with tag{{ tags|length|pluralize }} '{{ tags|list_attr:"get_name"|join:", " }}' feed" 
+      title="{{ settings.BLOG_NAME }}: posts with tag{{ tags|length|pluralize }} '{{ tags|list_attr:"name"|join:", " }}' feed" 
       href="{% url atom_feed feedurl %}" />
 {% endif %}
 {% endblock %}
@@ -26,12 +26,12 @@
   {% if month %}<h1>{% trans "Archive for" %} {{ month|date:"F, Y" }}</h1>{% endif %}
   {% if day %}<h1>{% trans "Archive for" %} {{ day|date:"F d, Y" }}</h1>{% endif %}
 
-  {% if tags %}<h1>{% trans "All articles, tagged with" %} "{{ tags|list_attr:"get_name"|join:", " }}"</h1>{% endif %}
+  {% if tags %}<h1>{% trans "All articles, tagged with" %} "{{ tags|list_attr:"name"|join:", " }}"</h1>{% endif %}
 {% endfilter %}
 
 {% comment %}
 <!-- example of tag cloud usage -->
-{% tag_cloud_for_model blog.post as tags %}
+{% tag_cloud_for_model blog.Post as tags %}
 {% render_tag_cloud tags %}
 {% endcomment %}
 

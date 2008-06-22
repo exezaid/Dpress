@@ -1,0 +1,81 @@
+{% load i18n %}
+{% load blog %}
+{% load theme %}
+{% load tagging_tags %}
+{% load bfmarkup %}
+{% load photologue %}
+<div class="sidebar" id="sidebar1">
+    <h3>by tag</h3>
+	{% tag_cloud_for_model blog.Post as tags %}
+	{% for tag in tags %}
+    <ul class="tag-list">
+	<li><a href="{% url post_by_tag tag.name %}"
+	   title="{% trans "Click to filter by" %} {{ tag.name }}"
+	   alt="count: {{ tag.count }}"
+	   class="tag-{{ tag.font_size }}"
+	   rel="tag">{{ tag.name|strong_spaces }} ({{ tag.count }})</a></li>
+	{% endfor %}
+    </ul>
+
+	{% get_latest_posts 5 as latest_post_list %}
+	{% if latest_post_list %}
+    <h3>recent posts</h3>
+    <ul class="post-list">
+    {% for post in latest_post_list %}
+        <li><a href="{{ post.get_absolute_url }}">{{ post.name }}</a></li>
+    {% endfor %}
+    </ul>
+	{% endif %}
+</div>
+<div class="sidebar" id="sidebar2">
+
+    <h3>by date</h3>
+    <ul class="post-list">
+    {% for row in Entry.get_counts_by_year %}
+        <li><a href="/blog/{{ row.0 }}">{{ row.0 }} ({{ row.1 }})</a></li>
+    {% endfor %}
+    </ul>
+
+    <h3>feeds</h3>
+    <ul class="feed-list">
+        <li><a title="{{ settings.BLOG_NAME }}: blog entries feed" href="{% url atom_feed "blog" %}">RSS Blog</a></li>
+        <li><a title="{{ settings.BLOG_NAME }}: comments feed" href="{% url atom_feed "comments" %}">RSS Comments </a></li>
+    </ul>
+
+    <h3>recent comments</h3>
+    <ul class="comment-list">
+    {% for comment in recent_comments|slice:"10" %}
+        <li><a href="{{ comment.get_absolute_url }}">{{ comment.comment|slice:"20" }}...</a></li>
+    {% endfor %}
+    </ul>
+
+    <h3>related links</h3>
+    <ul class="link-list">
+        <li><a href="http://www.djangoproject.com">Django</a></li>
+        <li><a href="http://www.python.org">Python</a></li>
+        <li><a href="http://www.firefox.org">Firefox</a></li>
+    </ul>
+
+		{% get_latest_galleries 5 as latest_gallery_list %}
+		{% if latest_gallery_list %}
+	    <h3>{% trans "Latest Galleries" %}</h3>
+		<ul>
+		    {% for gallery in latest_gallery_list %}
+			<li><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></li>
+		    {% endfor %}
+		</ul>
+		{% endif %}
+
+		{% get_latest_photos 8 as latest_photos_list %}
+		{% if latest_photos_list %}
+	    <h3>{% trans "Latest Photos" %}</h3>
+		<ul>
+		    {% for photo in latest_photos_list %}
+			<li>
+			<a href="{{ photo.gallery.get_absolute_url }}" title="{{ photo.title }}"><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>
+			</li>
+		    {% endfor %}
+		</li>
+		{% endif %}
+
+</div>

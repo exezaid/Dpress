@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load theme %}
+{% load tagging_tags %}
+{% load bfmarkup %}
+
+{% block title %}{% trans "Posts" %}{% endblock %}
+
+{% block content %}
+{% for object in object_list %}
+{% include "blog/post_entry.html" %}
+{% endfor %}
+{% endblock %}

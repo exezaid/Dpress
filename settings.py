@@ -164,6 +164,7 @@ INSTALLED_APPS = (
     'utils',
     'geotagging',
     'photologue',
+    'friendsite',
 
 )
 
