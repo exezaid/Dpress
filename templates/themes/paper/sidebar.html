@@ -46,7 +46,7 @@
 			<ul>
 				<li>
 			    {% for photo in latest_photos_list %}
-				<a href="{{ photo.gallery.get_absolute_url }}" title="{{ photo.title }}"><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>
+				<a href="{% url pl-photo photo.title_slug %}" title="{{ photo.title }}"><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>
 			    {% endfor %}
 				</li>
 			</ul>
