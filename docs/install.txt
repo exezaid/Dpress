@@ -1,0 +1,18 @@
+Installation
+============
+
+Tree steps installation:
+
+1) install packages of the contrib dir.
+On linux you can do simbolic links.
+
+sudo apt-get install python-openid
+
+2) Simple copy/rename settings_local_example.py in settings_locale.py
+
+3) Edit settings_locale.py:
+	
+	-
+	-
+	-
+
