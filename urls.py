@@ -11,6 +11,8 @@ from os.path import join, dirname
 import discussion.mail
 import utils.patches
 
+admin.autodiscover()
+
 def error500(request, template_name='500.html'):
     try:
         output = render_to_string(template_name, {}, RequestContext(request))
@@ -34,7 +36,7 @@ except ImportError:
 
 urlpatterns += patterns(
     '',
-    url(r'^admin/', include('django.contrib.admin.urls')),
+    url('^admin/(.*)', admin.site.root),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^openid/', include('openidconsumer.urls')),
     url(r'^openidserver/', include('openidserver.urls')),

@@ -3,7 +3,6 @@ import settings
 import traceback
 
 from django.db.models import signals
-from django.dispatch import dispatcher
 from django.template import Context, loader, Template, TemplateDoesNotExist
 from django.core.mail import mail_admins
 from django.contrib.sites.models import Site
@@ -38,7 +37,7 @@ def fetch_old_comment(comment):
 
 
 # send mail on comment
-def send_comment_by_mail(instance, created):
+def send_comment_by_mail(instance, created, **kwargs):
     if not created:
         return
     comment = instance
@@ -73,5 +72,4 @@ def send_comment_by_mail(instance, created):
         else:
             raise
 
-
-dispatcher.connect(send_comment_by_mail, sender=CommentNode, signal=signals.post_save)
+signals.post_save.connect(send_comment_by_mail, sender=CommentNode)

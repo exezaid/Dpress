@@ -1,7 +1,7 @@
 # This code is public domain.
 # Thanks to SmileyChris for the original implementation
 
-import django.newforms as forms
+import django.forms as forms
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe

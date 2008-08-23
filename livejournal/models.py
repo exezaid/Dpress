@@ -1,6 +1,5 @@
 from django.db import models
 from django.conf import settings
-from django.dispatch import dispatcher
 from django.utils.translation import ugettext_lazy as _
 
 from utils.helpers import get_object_or_none
@@ -51,7 +50,7 @@ Post.add_to_class('lj_object', get_lj_object_link)
 
 
 if settings.ENABLE_LJ_CROSSPOST:
-    Post._meta.admin.list_display += ('lj_object', )
-    dispatcher.connect(lj_crosspost, signal=models.signals.pre_save, sender=LiveJournalPost)
-    dispatcher.connect(lj_delete, signal=models.signals.pre_delete, sender=LiveJournalPost)
+#    Post._meta.admin.list_display += ('lj_object', )
+    models.signals.pre_save.connect(lj_crosspost, sender=LiveJournalPost)
+    models.signals.pre_delete.connect(lj_delete, sender=LiveJournalPost)
 

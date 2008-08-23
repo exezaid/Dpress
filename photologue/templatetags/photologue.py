@@ -14,7 +14,7 @@ class LatestGalleries(template.Node):
   def render(self, context):
     content_type = ContentType.objects.get(app_label='photologue', model='gallery')
     Gallery = content_type.model_class()
-    galleries = Gallery.objects.filter(is_public=True).order_by('-pub_date')[:int(self.format_string)]
+    galleries = Gallery.objects.filter(is_public=True).order_by('-date_added')[:int(self.format_string)]
     context[self.var_name] = galleries
     return ''
 
@@ -49,7 +49,7 @@ class LatestPhotos(template.Node):
   def render(self, context):
     content_type = ContentType.objects.get(app_label='photologue', model='photo')
     Photo = content_type.model_class()
-    photos = Photo.objects.filter(is_public=True).order_by('-pub_date')[:int(self.format_string)]
+    photos = Photo.objects.filter(is_public=True).order_by('-date_added')[:int(self.format_string)]
     context[self.var_name] = photos
     return ''
 

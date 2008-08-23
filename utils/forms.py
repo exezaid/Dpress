@@ -1,4 +1,4 @@
-from django import newforms as forms
+from django import forms
 
 from utils.http import JsonResponse
 from utils.exceptions import AjaxDataException

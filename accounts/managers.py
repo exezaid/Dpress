@@ -64,8 +64,10 @@ class RegistrationManager(models.Manager):
         new_user = User(username=email.replace('@', '-'), email=email, first_name=name)
         new_user.set_password(password)
         new_user.is_active = False
-        new_user.site = site
         new_user.save()
+        
+        from accounts.models import UserProfile
+        UserProfile(user=new_user, site = site).save()
 
         # Generate a salted SHA1 hash to use as a key.
         salt = sha.new(str(random.random())).hexdigest()[:5]
@@ -104,8 +106,9 @@ class RegistrationManager(models.Manager):
         new_user = User(username=username, email=email, first_name=name)
         new_user.set_password(password)
         new_user.is_active = True
-        new_user.site = site
         new_user.save()
+        from accounts.models import UserProfile
+        UserProfile(user=new_user, site = site).save()
 
         if send_email:
             current_domain = Site.objects.get_current().domain
@@ -262,10 +265,11 @@ class EmailManager(models.Manager):
             return None
         # Key valid and not expired. Change email.
         user = record.user
-        if user.email_new:
-            user.email = user.email_new
-            user.email_new = ''
-        user.save()
+        profile = user.get_profile()
+        if profile.email_new:
+            profile.email = user.email_new
+            profile.email_new = ''
+        profile.save()
         record.delete()
         return user
 
@@ -281,7 +285,9 @@ class EmailManager(models.Manager):
         action_key = sha.new(salt+user.email).hexdigest()
 
         # And finally create the record.
-        user.email_new = new_email
+        profile = user.get_profile()
+        profile.email_new = new_email
+        profile.save()
         user.save()
         record, created = self.get_or_create(user=user,
                                              type='E',

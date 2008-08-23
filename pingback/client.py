@@ -61,7 +61,7 @@ def search_link(content):
     return match and match.group(1)
 
 
-def ping_external_links(content_attr, url_attr):
+def ping_external_links(content_attr='html', url_attr='get_absolute_url', **kwargs):
     def execute_ping(instance):
         """ Pingback client function.
 
@@ -92,7 +92,7 @@ def ping_external_links(content_attr, url_attr):
     return execute_ping
 
 
-def ping_directories(content_attr, url_attr):
+def ping_directories(content_attr='html', url_attr='get_absolute_url', **kwargs):
     def execute_ping(instance):
         """Ping blog directories
 

@@ -8,15 +8,19 @@ from utils.fields import AutoOneToOneField
 from accounts.managers import RegistrationManager, ResetManager, EmailManager, ApprovalManager
 
 
-# Monkey-patching User model
-User.add_to_class('site', models.URLField(verify_exists=False, blank=True))
-User.add_to_class('email_new', models.EmailField(blank=True))
-
-User._meta.admin.fields += (
-    ('Byteflow Extensions', {'fields': ('site', 'email_new')}),
-    )
-User._meta.admin.list_display = ('username', 'email', 'first_name', 'is_staff', 'is_active')
-User._meta.admin.search_fields = ('username', 'first_name', 'email')
+## Monkey-patching User model
+#User.add_to_class('site', models.URLField(verify_exists=False, blank=True))
+#User.add_to_class('email_new', models.EmailField(blank=True))
+#
+#User._meta.admin.fields += (
+#    ('Byteflow Extensions', {'fields': ('site', 'email_new')}),
+#    )
+#User._meta.admin.list_display = ('username', 'email', 'first_name', 'is_staff', 'is_active')
+#User._meta.admin.search_fields = ('username', 'first_name', 'email')
+class UserProfile(models.Model):
+    user = models.ForeignKey(User, unique=True, db_index=True)
+    site = models.URLField(verify_exists=False, blank=True, null=True)
+    email_new = models.EmailField(blank=True)
 
 
 def _get_name(self):

@@ -112,4 +112,6 @@ class UrlMiddleware:
             if "django.contrib.flatpages.middleware.FlatpageFallbackMiddleware" in settings.MIDDLEWARE_CLASSES:
                 from django.contrib.flatpages.models import FlatPage
                 return FlatPage.objects.filter(url=path, sites__id=settings.SITE_ID).count() == 1
-
+        except:
+            return False
+        return False

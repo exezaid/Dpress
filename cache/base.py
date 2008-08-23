@@ -5,7 +5,6 @@ from django.db.models.fields import FieldDoesNotExist
 from django.db.models.options import Options
 from django.db.models import signals
 from django.db.models.loading import register_models, get_model
-from django.dispatch import dispatcher
 from django.utils.functional import curry
 from django.conf import settings
 

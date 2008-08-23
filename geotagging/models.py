@@ -9,7 +9,7 @@ class Continent(models.Model):
     >>> Continent().importdata()
 
     """
-    slug = models.SlugField(prepopulate_from=('name',), unique=True)
+    slug = models.SlugField(unique=True)
     code = models.CharField(max_length=2, primary_key=True)
     name = models.CharField(max_length=255, unique=True)
 
@@ -34,7 +34,7 @@ class Country(models.Model):
     >>> Country().importdata()
     """
     name = models.CharField(max_length=255, unique=True)
-    slug = models.SlugField(prepopulate_from=('name',), unique=True)
+    slug = models.SlugField(unique=True)
     code = models.CharField(max_length=2, primary_key=True)
     continent = models.ForeignKey(Continent, db_index=True)
 

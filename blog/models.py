@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from django.db.models import signals
 
 from django.db import models
 from django.conf import settings
@@ -6,7 +7,6 @@ from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from django.utils.html import strip_tags
 from django.contrib.contenttypes import generic
-from django.dispatch import dispatcher
 
 from utils.helpers import reverse
 from render import render
@@ -27,8 +27,8 @@ RENDER_METHODS = (
 )
 
 class Language(models.Model):
-    name = models.CharField(max_length=30, core=True)
-    small_icon = models.ImageField(core=True,upload_to='flags')
+    name = models.CharField(max_length=30)
+    small_icon = models.ImageField(upload_to='flags')
 
     class Admin:
         list_display = ('name', 'small_icon')
@@ -40,7 +40,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, related_name='posts')
     name = models.CharField(_(u'Name'), max_length=settings.NAME_LENGTH)
     slug = models.SlugField(_(u'Slug'), max_length=settings.NAME_LENGTH, blank=True,
-                            prepopulate_from=('name', ), unique_for_date="date")
+                            unique_for_date="date")
     language = models.ForeignKey(Language, blank=True, null=True)
     teaser = models.TextField(_(u'Post teaser'), blank=True)
     text = models.TextField(_(u'Text'))
@@ -132,8 +132,6 @@ class Post(models.Model):
 
 
 if settings.ENABLE_PINGBACK:
-    dispatcher.connect(ping_external_links(content_attr='html', url_attr='get_absolute_url'),
-                       signal=models.signals.post_save, sender=Post)
+    signals.post_save.connect(ping_external_links, sender=Post)
 if settings.ENABLE_DIRECTORY_PING:
-    dispatcher.connect(ping_directories(content_attr='html', url_attr='get_absolute_url'),
-                       signal=models.signals.post_save, sender=Post)
+    signals.post_save.connect(ping_directories, sender=Post)

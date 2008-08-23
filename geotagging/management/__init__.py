@@ -1,13 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from django.conf import settings
-from django.dispatch import dispatcher
 from django.db.models import signals
 import geotagging.models as models
 from geotagging.models import Continent, Country
 
 
-def init_data():
+def init_data(**kwargs):
     CONTINENTS = [
         ('AS', {'slug': 'asia', 'name': 'Asia'}),
         ('AF', {'slug': 'africa', 'name': 'Africa'}),
@@ -493,4 +492,4 @@ def init_data():
         if not c:
             break
 
-dispatcher.connect(init_data, sender=models, signal=signals.post_syncdb)
+signals.post_syncdb.connect(init_data, sender=models)

@@ -16,7 +16,7 @@ template.add_to_builtins("typogrify.templatetags.typogrify")
 
 ContentTypeManager.get = ctm_get
 
-from django.newforms.util import ErrorDict
+from django.forms.util import ErrorDict
 if 'as_json' not in ErrorDict.__dict__:
     from utils.ajax import as_json
     ErrorDict.as_json = as_json

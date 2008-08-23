@@ -4,7 +4,12 @@ from django.utils.html import strip_tags
 from blog.models import RENDER_METHODS
 from render import render
 #from django.contrib.contenttypes import generic
-#from django.dispatch import dispatcher
+
+SIDE_CHOICES = (
+    (1, 'Left'),
+    (2, 'Right'),
+)
+
 
 class TextBlock(models.Model):
     code = models.CharField(verbose_name=u'Unique system code', max_length=128, unique=True)
@@ -35,4 +40,25 @@ class TextBlock(models.Model):
 
     class Admin:
         list_display = ('code', 'name', 'comment',)
+        search_fields = ('name', 'text')
+
+class SideBlock(models.Model):
+    name = models.CharField(verbose_name=u'Unique Block name', max_length=255, unique=True)
+    text = models.TextField(verbose_name=u'Block content', blank=True, null=True)
+    template = models.CharField(max_length=255, blank=True, null=True)
+    order = models.PositiveIntegerField(verbose_name=u'order', default=0)
+    side = models.PositiveIntegerField(u'side', choices=SIDE_CHOICES, default=1)
+    active = models.BooleanField(u'active', default=False)
+    
+    def __unicode__(self):
+        return self.name
+        
+    class Meta:
+        verbose_name = u'side block'
+        verbose_name_plural = u'side blocks'
+        ordering = ['active', 'order', 'name']
+
+
+    class Admin:
+        list_display = ('name', 'active', 'order',)
         search_fields = ('name', 'text')

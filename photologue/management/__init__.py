@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.dispatch import dispatcher
 from django.db.models import signals
 import photologue.models as models 
 from photologue.models import PhotoEffect, PhotoSize  
@@ -41,4 +40,4 @@ def init_data():
                                                       })
 
 
-dispatcher.connect(init_data, sender=models, signal=signals.post_syncdb)
+#dispatcher.connect(init_data, sender=models, signal=signals.post_syncdb)

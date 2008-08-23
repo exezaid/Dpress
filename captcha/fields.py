@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Original: http://django-pantheon.googlecode.com/svn/trunk/pantheon/supernovaforms/
 
-from django import newforms as forms
+from django import forms
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 

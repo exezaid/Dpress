@@ -2,7 +2,7 @@
 
 import uuid
 
-from django import newforms as forms
+from django import forms
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
@@ -44,7 +44,8 @@ class CommentForm(forms.Form):
 class AnonymousCommentForm(CommentForm):
     name = User._meta.get_field('first_name').formfield(required=True, help_text=_(u'Required. 30 chars of fewer.'), label=_(u'Name'))
     email = User._meta.get_field('email').formfield(required=True, help_text=_(u'Required.'), label=_(u'Email'))
-    site = User._meta.get_field('site').formfield()
+#    site = User._meta.get_field('site').formfield()
+    site = forms.CharField(max_length=200, required=False, label=_(u'Site'))
 
     def __init__(self, *args, **kwargs):
         if settings.CAPTCHA == 'simple':

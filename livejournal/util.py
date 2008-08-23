@@ -70,13 +70,13 @@ def lj_create(local_post, remote_post):
     # it will be saved as we was called at pre_save
 
 
-def lj_delete(instance):
+def lj_delete(instance, **kwargs):
     if instance.need_crosspost:
         server = xmlrpclib.ServerProxy(LJ_RPC)
         response = server.LJ.XMLRPC.editevent(create_args(None, instance))
 
 
-def lj_crosspost(instance):
+def lj_crosspost(instance, **kwargs):
     post = instance.post
     if not post.is_draft and instance.need_crosspost:
         if instance.lj_id:
