@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "All Videos" %}{% endblock %}
+
+{% block content %}
+
+<h1>{% trans "All Videos" %}</h1>
+
+{% if object_list %}
+    {% for video in object_list %}
+    <div class="video">
+        <h2>{{ video.title }}</h2>
+		<div style="textalign:center; width:100%;">
+		<object type="application/x-shockwave-flash" data="/media/flash/FlowPlayer.swf" 
+		width="320" height="262" id="FlowPlayer">
+		<param name="allowScriptAccess" value="sameDomain" />
+		<param name="movie" value="/media/flash/FlowPlayer.swf" />
+	
+		<param name="quality" value="high" />
+		<param name="scale" value="noScale" />
+		<param name="wmode" value="transparent" />
+		<param name="flashvars" value="config={enableAds: false,  autoPlay: false, playList: [ { url: '/media/{{video.video}}' }, { overlayId: 'play' } ], autoBuffering: false, initialScale: 'scale', useNativeFullScreen: true }" />
+		
+		<p>Il broswer richiede l'addin flash.</p>
+		</object>
+		<p>
+		<center>
+		<strong>{{video.comment}}</strong>
+		</center>
+		</p>
+		</div>
+    </div>
+	<div class='imageboxes-break'></div>
+    {% endfor %}
+{% else %}
+    <p>{% trans "No videos were found." %}</p>
+{% endif %}
+
+{% if is_paginated %}
+<p>{{ hits }} videos total.</p>
+<div id="page_controls">
+    <p>{% if has_previous %}<a href="{% url tube-video-list previous %}">{% trans "Previous" %}</a> | {% endif %} {% trans "page" %} {{ page }} {% trans "of" %} {{ pages }} {% if has_next %}| <a href="{% url tube-video-list next %}">{% trans "Next" %}</a>{% endif %}</p>
+</div>
+{% endif %}
+
+{% endblock %}
