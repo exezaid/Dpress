@@ -233,7 +233,7 @@ class GalleryUpload(models.Model):
                         slug = slugify(title)
                         try:
                             p = Photo.objects.get(title_slug=slug)
-                        except Photo.DoesNotExist:                            
+                        except Photo.DoesNotExist:
                             photo = Photo(title=title, title_slug=slug,
                                           caption=self.caption,
                                           is_public=self.is_public,
@@ -500,6 +500,19 @@ class Photo(ImageModel):
     def public_galleries(self):
         """Return the public galleries to which this photo belongs."""
         return self.galleries.filter(is_public=True)
+
+    def get_previous_in_gallery(self, gallery):
+        try:
+            return self.get_previous_by_date_added(galleries__exact=gallery)
+        except Photo.DoesNotExist:
+            return None
+
+    def get_next_in_gallery(self, gallery):
+        try:
+            return self.get_next_by_date_added(galleries__exact=gallery)
+        except Photo.DoesNotExist:
+            return None
+
 
     @property
     def gallery(self):

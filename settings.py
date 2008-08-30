@@ -158,6 +158,7 @@ INSTALLED_APPS = (
     'openidserver',
     'recaptcha',
     'debug',
+    'tube',
 #    'sape',
     'xmlrpc',
     'pytils',

@@ -21,15 +21,14 @@ ACCESS_LEVELS = (
 EDIT_INLINE = settings.ENABLE_LJ_CROSSPOST and models.TABULAR or False
 
 class LiveJournalPost(models.Model):
-    post = models.ForeignKey(Post, editable=False, db_column='post_id', related_name='livejournalpost',
-                             edit_inline=EDIT_INLINE, max_num_in_admin=1, num_in_admin=1, num_extra_on_change=1)
+    post = models.ForeignKey(Post, editable=False, db_column='post_id', related_name='livejournalpost')
     lj_id = models.IntegerField(editable=False, blank=True, null=False)
 
-    need_crosspost = models.BooleanField(_('Needs crossposting'), default=True, core=True)
+    need_crosspost = models.BooleanField(_('Needs crossposting'), default=True)
 
-    no_comments = models.BooleanField(_('Turn off comments'), default=False, core=True)
-    screen_comments = models.CharField(_('Comments screening'), max_length=1, choices=SCREEN_CHOICES, blank=False, default='N', core=True)
-    access_level = models.CharField(_('Access level'), max_length=10, choices=ACCESS_LEVELS, blank=False, default='public', core=True)
+    no_comments = models.BooleanField(_('Turn off comments'), default=False)
+    screen_comments = models.CharField(_('Comments screening'), max_length=1, choices=SCREEN_CHOICES, blank=False, default='N')
+    access_level = models.CharField(_('Access level'), max_length=10, choices=ACCESS_LEVELS, blank=False, default='public')
 
     class Admin:
         list_display = ('post', 'need_crosspost')

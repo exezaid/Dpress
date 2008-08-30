@@ -38,6 +38,7 @@ urlpatterns += patterns(
     '',
     url('^admin/(.*)', admin.site.root),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^video/', include('tube.urls')),
     url(r'^openid/', include('openidconsumer.urls')),
     url(r'^openidserver/', include('openidserver.urls')),
     url(r'^%s' % settings.BLOG_URLCONF_ROOT, include('blog.urls')),
