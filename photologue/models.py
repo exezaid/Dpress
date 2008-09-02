@@ -526,13 +526,6 @@ class Photo(ImageModel):
             return self.gallery_set.all()[0]
         return None
 
-    def __unicode__(self):
-        return self.title
-        
-    def __str__(self):
-        return self.__unicode__()
-
-
 class BaseEffect(models.Model):
     name = models.CharField(_('name'), max_length=30, unique=True)
     description = models.TextField(_('description'), blank=True)
