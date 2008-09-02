@@ -111,7 +111,7 @@ class CommentNode(models.Model):
         return strip_tags(self.body_html)[:50]
     get_clean_html.allow_tags = True
 
-    def save(self):
+    def save(**kwargs):
         if self.body:
             self.body = self.body.strip()
             self.body_html = nofollow(render(self.body, 'markdown'))
@@ -162,7 +162,7 @@ class CommentNode(models.Model):
                     # Put this comment at the top level
                     self.lft = current_max_rght + 1
                     self.rght = current_max_rght + 2
-        super(CommentNode, self).save()
+        super(CommentNode, self).save(**kwargs)
 
     def get_absolute_url(self):
         return '%s#c%s' % (self.object.get_absolute_url(), self.id)

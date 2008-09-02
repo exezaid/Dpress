@@ -86,13 +86,13 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post_detail', year=self.date.year, month=self.date.strftime('%m'), day=self.date.strftime('%d'), slug=self.slug)
 
-    def save(self):
+    def save(**kwargs):
         if not self.slug:
             from pytils.translit import slugify
             self.slug = slugify(self.name)
         self.text = self.text.strip()
         self.html = render(self.text, self.render_method, unsafe=True)
-        super(Post, self).save()
+        super(Post, self).save(**kwargs)
 
     def comments_open(self):
         if settings.COMMENTS_EXPIRE_DAYS:

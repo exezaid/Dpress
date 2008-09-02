@@ -21,7 +21,7 @@ class Link(models.Model):
     romantic_rel = models.CharField(_('Romantic relation'), max_length=20, choices=ROMANTIC_REL, blank=True)
     identity_rel = models.CharField(_('Identity relation'), max_length=20, choices=IDENTITY_REL, blank=True)
 
-    def save(self):
+    def save(**kwargs):
         """
         Cache all not empty relations in single relations field
         """
@@ -29,7 +29,7 @@ class Link(models.Model):
         rels = ['friendship_rel', 'physical_rel', 'professional_rel', 
                 'geographical_rel', 'family_rel', 'romantic_rel', 'identity_rel']
         self.relations = ' '.join(filter(lambda x: x != '', [getattr(self, x) for x in rels]))
-        super(self.__class__, self).save()
+        super(self.__class__, self).save(**kwargs)
 
     def __unicode__(self):
         return self.name
