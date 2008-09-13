@@ -111,7 +111,7 @@ class CommentNode(models.Model):
         return strip_tags(self.body_html)[:50]
     get_clean_html.allow_tags = True
 
-    def save(*args, **kwargs):
+    def save(self, *args, **kwargs):
         if self.body:
             self.body = self.body.strip()
             self.body_html = nofollow(render(self.body, 'markdown'))

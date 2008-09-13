@@ -26,7 +26,7 @@ class Pingback(models.Model):
     def get_absolute_url(self):
         return object.get_absolute_url()
 
-    def save(*args, **kwargs):
+    def save(self, *args, **kwargs):
         self.content = self.content.strip()
         super(Pingback, self).save(*args, **kwargs)
 

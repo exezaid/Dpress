@@ -21,7 +21,7 @@ class Link(models.Model):
     romantic_rel = models.CharField(_('Romantic relation'), max_length=20, choices=ROMANTIC_REL, blank=True)
     identity_rel = models.CharField(_('Identity relation'), max_length=20, choices=IDENTITY_REL, blank=True)
 
-    def save(*args, **kwargs):
+    def save(self, *args, **kwargs):
         """
         Cache all not empty relations in single relations field
         """

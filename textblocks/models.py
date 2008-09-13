@@ -24,7 +24,7 @@ class TextBlock(models.Model):
     def __unicode__(self):
         return "%s - %s" % (self.code, self.comment)
         
-    def save(*args, **kwargs):
+    def save(self, *args, **kwargs):
         self.text = self.text.strip()
         #if not self.render_method:
             #self.render_method = settings.RENDER_METHOD
