@@ -24,12 +24,12 @@ class TextBlock(models.Model):
     def __unicode__(self):
         return "%s - %s" % (self.code, self.comment)
         
-    def save(**kwargs):
+    def save(*args, **kwargs):
         self.text = self.text.strip()
         #if not self.render_method:
             #self.render_method = settings.RENDER_METHOD
         self.html = render(self.text, self.render_method, unsafe=True)
-        super(TextBlock, self).save(**kwargs)
+        super(TextBlock, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = u'text block'

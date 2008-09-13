@@ -141,3 +141,12 @@ div.photo-gallery
 .calendarnav-next { position: absolute; right: 0; }
 .calendar-cancel { text-align: center; }
 span a img { border: none; }
+
+/* sidebar image */
+div.photothumb {
+	width: 100px; 
+	height: 75px; 
+	float: none; 
+	display: inline;
+	text-align:center;
+}

@@ -26,9 +26,9 @@ class Pingback(models.Model):
     def get_absolute_url(self):
         return object.get_absolute_url()
 
-    def save(**kwargs):
+    def save(*args, **kwargs):
         self.content = self.content.strip()
-        super(Pingback, self).save(**kwargs)
+        super(Pingback, self).save(*args, **kwargs)
 
     def get_host(self):
         return urlsplit(self.url)[1]
