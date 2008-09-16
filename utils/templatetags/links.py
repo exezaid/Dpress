@@ -1,12 +1,15 @@
 from django.template import Library, Node, TemplateSyntaxError
 from django.template.defaulttags import url
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, SiteProfileNotAvailable
 
 register = Library()
 
 def _link(object, anchor=u''):
     if isinstance(object, User):
-        url = object.site
+        try:
+            url = object.get_profile().site
+        except SiteProfileNotAvailable:
+            url = object.get_absolute_url()
         anchor = object.name
     else:
         url = object.get_absolute_url()
